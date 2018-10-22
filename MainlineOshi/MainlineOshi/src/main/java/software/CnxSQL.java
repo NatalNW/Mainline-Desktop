@@ -10,26 +10,31 @@ import java.util.logging.Logger;
 
 public class CnxSQL {
 
-    public void metodo() {
+    public boolean autenticaUsuario(String nome, String senha) {
         // Variaveis de Cnx
         String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
         Connection cnx = null;
-        // Variavel Comando sql
-        String selectSql="select * from usuario";
+        Statement stm = null;
         try {
-            cnx=DriverManager.getConnection(url);
-            Statement comandoSql = cnx.createStatement();
-            ResultSet rs = comandoSql.executeQuery(selectSql);
-            
-            if(rs.next()){
-                String nome = rs.getString("nome");
+            //abre conexão
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            //faz select
+            String select = "SELECT * FROM  usuario";
+            ResultSet rs = stm.executeQuery(select);
+
+            if (rs.next()) {
+                //retorna nome && senha
+                if (rs.getString("nome").equals(nome) && rs.getString("senha").equals(senha)) {
+                    return true;
+                }
             }
-            
-        
+
         } catch (SQLException ex) {
-            System.out.println("Deu ruim");
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return false;
     }
 
 }
