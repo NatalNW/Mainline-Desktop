@@ -18,10 +18,10 @@ public class inicioLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jlMainline = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JPasswordField();
         btnIniciar = new javax.swing.JButton();
-        jlLogin = new javax.swing.JLabel();
+        jlEmail = new javax.swing.JLabel();
         jlSenha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -29,21 +29,21 @@ public class inicioLogin extends javax.swing.JFrame {
         jlMainline.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jlMainline.setText("Mainline");
 
-        txtLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtLogin.setToolTipText("");
+        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEmail.setToolTipText("");
 
         txtSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnIniciar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnIniciar.setText("Iniciar");
+        btnIniciar.setText("Logar");
         btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarActionPerformed(evt);
             }
         });
 
-        jlLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlLogin.setText("Login");
+        jlEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jlEmail.setText("Email");
 
         jlSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlSenha.setText("Senha");
@@ -61,9 +61,9 @@ public class inicioLogin extends javax.swing.JFrame {
                         .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlSenha)
-                            .addComponent(jlLogin)))
+                            .addComponent(jlEmail)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(166, 166, 166)
                         .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -75,9 +75,9 @@ public class inicioLogin extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jlMainline)
                 .addGap(27, 27, 27)
-                .addComponent(jlLogin)
+                .addComponent(jlEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jlSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -92,12 +92,15 @@ public class inicioLogin extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
        CnxSQL a = new CnxSQL();
-       
-       if(a.autenticaUsuario(txtLogin.getText(), txtSenha.getText())){
-           JOptionPane.showMessageDialog(null, "Boa!");
+     
+       if(a.autenticaUsuario(txtEmail.getText(), txtSenha.getText())){
+           BemVindo bv = new BemVindo();
+           bv.setVisible(true);
+           bv.jlBemVindo.setText("Bem vindo, "+a.getNome());
+           new inicioLogin().setVisible(false);
        }
        else{
-           JOptionPane.showConfirmDialog(null, "Usuário ou Senha inválidos..", "Erro!", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
        }
     }//GEN-LAST:event_btnIniciarActionPerformed
 
@@ -127,6 +130,7 @@ public class inicioLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new inicioLogin().setVisible(true);
             }
@@ -135,10 +139,10 @@ public class inicioLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
-    private javax.swing.JLabel jlLogin;
+    private javax.swing.JLabel jlEmail;
     private javax.swing.JLabel jlMainline;
     private javax.swing.JLabel jlSenha;
-    private javax.swing.JTextField txtLogin;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

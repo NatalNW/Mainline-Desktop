@@ -15,16 +15,12 @@ public class CnxSQL {
     Connection cnx = null;
     Statement stm = null;
     
+    private int idUser;
     private String nome;
-    private String senha;
     
-    public boolean autenticaUsuario(String nome, String senha) {
-
-        this.nome = nome;
-        this.senha = senha;
+    public boolean autenticaUsuario(String email, String senha) {
         
         
-                
         try {
             //abre conexão
             cnx = DriverManager.getConnection(url);
@@ -32,11 +28,16 @@ public class CnxSQL {
             //faz select
             String select = "SELECT * FROM  usuario";
             ResultSet rs = stm.executeQuery(select);
-            // Validação de login
+            
             if (rs.next()) {
-                //retorna nome && senha
-                if (rs.getString("nome").equals(this.nome) && rs.getString("senha").equals(this.senha)) {
+                
+                this.idUser = rs.getInt("idUser");
+                this.nome = rs.getString("nome");
+                // Validação de login
+                if (rs.getString("email").equals(email) && rs.getString("senha").equals(senha)) {
+                    
                     return true;
+                    //if true, retorna nome && senha
                 }
             }
 
@@ -48,12 +49,14 @@ public class CnxSQL {
         
     }
 
+    public int getIdUser() {
+        return idUser;
+    }
+
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
+    
+    
 }
