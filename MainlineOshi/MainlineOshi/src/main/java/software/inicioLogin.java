@@ -65,14 +65,14 @@ public class inicioLogin extends javax.swing.JFrame {
                             .addComponent(jlSenha)
                             .addComponent(jlLogin)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
+                        .addGap(166, 166, 166)
                         .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(91, 91, 91))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addComponent(jlMainline)
                 .addGap(27, 27, 27)
                 .addComponent(jlLogin)
@@ -97,13 +97,10 @@ public class inicioLogin extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Boa!");
        }
        else{
-           JOptionPane.showMessageDialog(null, "Usuário ou senha inválido.");
+           JOptionPane.showConfirmDialog(null, "Usuário ou Senha inválidos..", "Erro!", JOptionPane.ERROR_MESSAGE);
        }
     }//GEN-LAST:event_btnIniciarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
