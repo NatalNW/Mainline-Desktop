@@ -1,2 +1,2 @@
 # Mainline
-Projeto de faculdade
+Projeto de faculdade; Client para monitorar hardware, usando API Oshi.
