@@ -96,8 +96,8 @@ public class inicioLogin extends javax.swing.JFrame {
        if(a.autenticaUsuario(txtEmail.getText(), txtSenha.getText())){
            BemVindo bv = new BemVindo();
            bv.setVisible(true);
-           bv.jlBemVindo.setText("Bem vindo, "+a.getNome());
-           new inicioLogin().setVisible(false);
+           dispose();
+           bv.jlBemVindo.setText("Bem vindo, "+a.getNome());           
        }
        else{
            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
