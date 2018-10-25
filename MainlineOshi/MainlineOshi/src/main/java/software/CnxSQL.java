@@ -10,13 +10,24 @@ import java.util.logging.Logger;
 
 public class CnxSQL {
     
-// Variaveis de Cnx
+    GetDados gd = new GetDados();
+    
+    
+    // Variaveis de Cnx
     String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
     Connection cnx = null;
     Statement stm = null;
     
     private int idUser;
     private String nome;
+    
+      public int getIdUser() {
+        return idUser;
+    }
+
+    public String getNome() {
+        return nome;
+    }
     
     public boolean autenticaUsuario(String email, String senha) {
         
@@ -39,6 +50,7 @@ public class CnxSQL {
                     return true;
                     //if true, retorna nome && senha
                 }
+                cnx.close(); 
             }
 
         } catch (SQLException ex) {
@@ -48,15 +60,17 @@ public class CnxSQL {
         return false;
         
     }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
     
+    public void insetRam(){
+        try {
+            
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            String insert = "INSERT INTO ativo";
+        } catch (SQLException ex) {
+            Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
     
 }
