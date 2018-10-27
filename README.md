@@ -1,2 +1,2 @@
-# Mainline
-Projeto de faculdade; Client para monitorar hardware, usando API Oshi.
+2º Semestre da faculdade Bandtec;
+Projeto de monitoração de Hardware usando a API Oshi.
