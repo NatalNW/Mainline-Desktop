@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package software;
 
-/**
- *
- * @author Natanael.Lima
- */
+import javax.swing.JOptionPane;
+
 public class inicioLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form inicioLogin
-     */
     public inicioLogin() {
         initComponents();
     }
@@ -28,75 +18,112 @@ public class inicioLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jlMainline = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JPasswordField();
         btnLogar = new javax.swing.JButton();
-        jlLogin = new javax.swing.JLabel();
+        jlEmail = new javax.swing.JLabel();
         jlSenha = new javax.swing.JLabel();
+        txtAtivoID = new javax.swing.JTextField();
+        jlAtivoID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jlMainline.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jlMainline.setText("Mainline");
 
-        txtLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtLogin.setToolTipText("");
+        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEmail.setToolTipText("");
 
         txtSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnLogar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnLogar.setText("Logar");
+        btnLogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogarActionPerformed(evt);
+            }
+        });
 
-        jlLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlLogin.setText("Login");
+        jlEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jlEmail.setText("Email");
 
         jlSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlSenha.setText("Senha");
+
+        txtAtivoID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAtivoIDActionPerformed(evt);
+            }
+        });
+
+        jlAtivoID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jlAtivoID.setText("Ativo ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(jlMainline)
+                .addGap(182, 182, 182))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlAtivoID)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlSenha)
+                    .addComponent(jlEmail)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jlMainline))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
+                        .addGap(77, 77, 77)
                         .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlSenha)
-                            .addComponent(jlLogin))))
-                .addGap(91, 91, 91))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAtivoID, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addComponent(jlMainline)
-                .addGap(44, 44, 44)
-                .addComponent(jlLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jlAtivoID)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(txtAtivoID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlEmail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(jlSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+       CnxSQL cnxSql = new CnxSQL();
+        
+       if(cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText(), Integer.parseInt(txtAtivoID.getText()))){
+           BemVindo bv = new BemVindo();
+           bv.setVisible(true);
+           dispose();
+           bv.jlBemVindo.setText("Bem vindo, "+cnxSql.ua.getNome());  
+       }
+       else{
+           JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
+       }
+    }//GEN-LAST:event_btnLogarActionPerformed
+
+    private void txtAtivoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAtivoIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAtivoIDActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -123,6 +150,7 @@ public class inicioLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new inicioLogin().setVisible(true);
             }
@@ -131,10 +159,12 @@ public class inicioLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogar;
-    private javax.swing.JLabel jlLogin;
+    private javax.swing.JLabel jlAtivoID;
+    private javax.swing.JLabel jlEmail;
     private javax.swing.JLabel jlMainline;
     private javax.swing.JLabel jlSenha;
-    private javax.swing.JTextField txtLogin;
+    private javax.swing.JTextField txtAtivoID;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

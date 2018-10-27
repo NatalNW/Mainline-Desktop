@@ -60,25 +60,27 @@ public class NewClass {
                 //}, delay, interval);
          */
         // Consumo RAM
-        //HardwareAbstractionLayer hal = si.getHardware();
-        //long memoriaDisponivel = hal.getMemory().getAvailable();
-        //long memoriaTotal = hal.getMemory().getTotal();
-        //long memUso = memoriaTotal - memoriaDisponivel;
-        //long consumo = ((100*memUso)/ memoriaTotal);
-       
+          /*  HardwareAbstractionLayer hal = si.getHardware();
+            long memoriaDisponivel = hal.getMemory().getAvailable();
+            long memoriaTotal = hal.getMemory().getTotal();
+            long memUso = memoriaTotal - memoriaDisponivel;
+            long consumo = ((100*memUso)/ memoriaTotal);
+       */
         // Consumo HD
-        //OSFileStore[] fls = si.getOperatingSystem().getFileSystem().getFileStores(); 
-        //long fs = new OSFileStore().getTotalSpace();
-        //long usageHD = fls[0].getTotalSpace() - fls[0].getUsableSpace();
-        //long consumoHD = (100*usageHD)/ fls[0].getTotalSpace();
-       
+          /*  OSFileStore[] fls = si.getOperatingSystem().getFileSystem().getFileStores(); 
+            long fs = new OSFileStore().getTotalSpace();
+            long usageHD = fls[0].getTotalSpace() - fls[0].getUsableSpace();
+            long consumoHD = (100*usageHD)/ fls[0].getTotalSpace();
+            */
+           // System.out.println(consumo);
+            
         // Consumo CPU
-       /* HardwareAbstractionLayer hal = si.getHardware();
+      /* HardwareAbstractionLayer hal = si.getHardware();
         CentralProcessor cp = hal.getProcessor();
         double teste = cp.getSystemCpuLoad() * 100;
                 teste = Math.round(teste);
                 System.out.println(teste);
-          */
+        */  
 
         // TIMER
        /* int delay = 5000;
@@ -113,5 +115,9 @@ public class NewClass {
                 
                 System.out.println("\n"+Nome_Da_Variavel+"\n");//
          */
+        
+       // testeMetodos tm = new testeMetodos();
+        
+        //System.out.println(tm.getConsumoCPU());
     }
 }
