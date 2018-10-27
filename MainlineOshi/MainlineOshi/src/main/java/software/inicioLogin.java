@@ -20,9 +20,11 @@ public class inicioLogin extends javax.swing.JFrame {
         jlMainline = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JPasswordField();
-        btnIniciar = new javax.swing.JButton();
+        btnLogar = new javax.swing.JButton();
         jlEmail = new javax.swing.JLabel();
         jlSenha = new javax.swing.JLabel();
+        txtAtivoID = new javax.swing.JTextField();
+        jlAtivoID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -34,11 +36,11 @@ public class inicioLogin extends javax.swing.JFrame {
 
         txtSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        btnIniciar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnIniciar.setText("Logar");
-        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
+        btnLogar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLogar.setText("Logar");
+        btnLogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarActionPerformed(evt);
+                btnLogarActionPerformed(evt);
             }
         });
 
@@ -48,33 +50,47 @@ public class inicioLogin extends javax.swing.JFrame {
         jlSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlSenha.setText("Senha");
 
+        txtAtivoID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAtivoIDActionPerformed(evt);
+            }
+        });
+
+        jlAtivoID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jlAtivoID.setText("Ativo ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(jlMainline)
+                .addGap(182, 182, 182))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlAtivoID)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlSenha)
+                    .addComponent(jlEmail)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jlMainline))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlSenha)
-                            .addComponent(jlEmail)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(91, 91, 91))
+                        .addGap(77, 77, 77)
+                        .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAtivoID, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jlMainline)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jlAtivoID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAtivoID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jlEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -83,26 +99,30 @@ public class inicioLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-       CnxSQL a = new CnxSQL();
-     
-       if(a.autenticaUsuario(txtEmail.getText(), txtSenha.getText())){
+    private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+       CnxSQL cnxSql = new CnxSQL();
+        
+       if(cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText(), Integer.parseInt(txtAtivoID.getText()))){
            BemVindo bv = new BemVindo();
            bv.setVisible(true);
            dispose();
-           bv.jlBemVindo.setText("Bem vindo, "+a.getNome());           
+           bv.jlBemVindo.setText("Bem vindo, "+cnxSql.ua.getNome());  
        }
        else{
            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
        }
-    }//GEN-LAST:event_btnIniciarActionPerformed
+    }//GEN-LAST:event_btnLogarActionPerformed
+
+    private void txtAtivoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAtivoIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAtivoIDActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -138,10 +158,12 @@ public class inicioLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnLogar;
+    private javax.swing.JLabel jlAtivoID;
     private javax.swing.JLabel jlEmail;
     private javax.swing.JLabel jlMainline;
     private javax.swing.JLabel jlSenha;
+    private javax.swing.JTextField txtAtivoID;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables

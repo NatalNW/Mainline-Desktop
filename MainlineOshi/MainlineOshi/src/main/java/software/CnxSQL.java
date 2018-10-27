@@ -9,68 +9,88 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CnxSQL {
-    
-    GetDados gd = new GetDados();
-    
-    
-    // Variaveis de Cnx
-    String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-    Connection cnx = null;
-    Statement stm = null;
-    
-    private int idUser;
-    private String nome;
-    
-      public int getIdUser() {
-        return idUser;
-    }
 
-    public String getNome() {
-        return nome;
-    }
-    
-    public boolean autenticaUsuario(String email, String senha) {
-        
-        
+    private GetDados gd = new GetDados();
+    UsuarioAndAtivo ua = new UsuarioAndAtivo();
+
+    // Variaveis de Cnx
+    private String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+    private Connection cnx = null;
+    private Statement stm = null;
+
+    public boolean autenticaUsuario(String email, String senha, int ativoID) {
+
         try {
             //abre conexão
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
             //faz select
-            String select = "SELECT * FROM  usuario";
+            String select = "SELECT * FROM usuario, ativo WHERE usuario.idUser = ativo.idUser";
             ResultSet rs = stm.executeQuery(select);
-            
+
             if (rs.next()) {
-                
-                this.idUser = rs.getInt("idUser");
-                this.nome = rs.getString("nome");
+                //String IDativo = Integer.toString(rs.getInt("idAtivo"));
+                ua.setIdUser(rs.getInt("idUser"));
+                ua.setNome(rs.getString("nome"));
+                ua.setIdAtivo(rs.getInt("idAtivo"));
+                ua.setNomeAtivo(rs.getString("nomeAtivo"));
                 // Validação de login
-                if (rs.getString("email").equals(email) && rs.getString("senha").equals(senha)) {
-                    
+                if ((rs.getString("email").equals(email) && rs.getString("senha").equals(senha)) && (ua.getIdAtivo() == (ativoID))) {
                     return true;
-                    //if true, retorna nome && senha
+                    //if true, usuario existe e ativo já cadastrado
                 }
-                cnx.close(); 
+                cnx.close();
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return false;
-        
+        return false;   
     }
     
-    public void insetRam(){
+    private int idAtivo = ua.getIdAtivo();
+    
+    public void insertRam() {
+        double ram = gd.getConsumoRam();
         try {
-            
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO ativo";
+            String insert = "INSERT INTO infoRam VALUES (" + ram + ", "+idAtivo+")";
+            stm.executeUpdate(insert);
+
+            cnx.close();
         } catch (SQLException ex) {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
     }
     
+    public void insertHD() {
+        double hd = gd.getConsumoHD();
+        try {
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            String insert = "INSERT INTO infoHD VALUES (" + hd + ", "+idAtivo+")";
+            stm.executeUpdate(insert);
+
+            cnx.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void insertCPU() {
+        double cpu = gd.getConsumoCPU();
+        try {
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            String insert = "INSERT INTO infoRam VALUES (" + cpu + ", "+idAtivo+")";
+            stm.executeUpdate(insert);
+
+            cnx.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

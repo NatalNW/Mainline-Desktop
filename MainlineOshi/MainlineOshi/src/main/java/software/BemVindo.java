@@ -25,7 +25,7 @@ public class BemVindo extends javax.swing.JFrame {
         bntIniciar.setText("Iniciar");
         bntIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bntIniciarActionPerformed(evt);
             }
         });
         
@@ -67,8 +67,16 @@ public class BemVindo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    private void bntIniciarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        CnxSQL cnxSql = new CnxSQL();
+        
+        try {
+            cnxSql.insertRam();
+        } catch (Exception e) {
+            System.out.println("errou!!");
+            System.out.println(e);
+        }
+        
     }                                        
 
     public static void main(String args[]) {
