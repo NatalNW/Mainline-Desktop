@@ -111,12 +111,12 @@ public class inicioLogin extends javax.swing.JFrame {
         
        if(cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText(), Integer.parseInt(txtAtivoID.getText()))){
            BemVindo bv = new BemVindo();
-           bv.setVisible(true);
-           dispose();
-           bv.jlBemVindo.setText("Bem vindo, "+cnxSql.ua.getNome());  
+           bv.setVisible(true); //Mostra ou oculta a janela instanciada dependendo do valor do parâmetro booleano;
+           dispose(); // Fecha a tela de inicioLogin;
+           bv.jlBemVindo.setText("Bem vindo, "+cnxSql.ua.getNome());// Mensagem de bem vindo e o nome do usuario. Ex: Bem Vindo Natal;  
        }
        else{
-           JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE); // Mensagem de erro caso ocorra na validação do Login;
        }
     }//GEN-LAST:event_btnLogarActionPerformed
 

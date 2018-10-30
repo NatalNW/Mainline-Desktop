@@ -68,8 +68,8 @@ public class BemVindo extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void bntIniciarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        CnxSQL cnxSql = new CnxSQL();
-        
+        CnxSQL cnxSql = new CnxSQL();         
+                                                                                
         try {
             cnxSql.insertRam();
         } catch (Exception e) {
