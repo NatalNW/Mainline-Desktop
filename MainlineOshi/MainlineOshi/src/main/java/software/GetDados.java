@@ -1,6 +1,7 @@
 package software;
 
 import oshi.SystemInfo;
+import oshi.hardware.Baseboard;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HardwareAbstractionLayer;
@@ -11,7 +12,14 @@ public class GetDados {
     private SystemInfo si = new SystemInfo();
     private GlobalMemory gm = si.getHardware().getMemory();
     private CentralProcessor cp = si.getHardware().getProcessor();
+	private Baseboard b = hal.getComputerSystem().getBaseboard();
     private OSFileStore[] fls = si.getOperatingSystem().getFileSystem().getFileStores(); // Array onde ficam os FileSystems do ativo. Ex: disco local C:, maquina virtual F: e etc;
+	
+	  protected String getAtivoID(){
+       String idAtivo = b.getSerialNumber();
+       
+       return idAtivo;
+    }
     
    public long getConsumoRam(){
         long disponivelRam = gm.getAvailable();

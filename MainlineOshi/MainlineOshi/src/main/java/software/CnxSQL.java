@@ -18,25 +18,24 @@ public class CnxSQL {
     private Connection cnx = null;
     private Statement stm = null;
         
-    public boolean autenticaUsuario(String email, String senha, int ativoID) { // Metodo q faz autenticação de login q entraos valores email, senha e id do ativo como parametros;
+    public boolean autenticaUsuario(String email, String senha) { // Metodo q faz autenticação de login q entraos valores email, senha e id do ativo como parametros;
 
         try {
             // Abre conexão
             cnx = DriverManager.getConnection(url); // Tenta estabelecer uma conexão com a URL do banco de dados fornecido. O DriverManager tenta selecionar um driver apropriado do conjunto de drivers JDBC registrados;
             stm = cnx.createStatement(); // Cria um objeto Statement para enviar instruções SQL para o banco de dados;
             // Instrução ao Banco 
-            String select = "SELECT * FROM usuario, ativo WHERE usuario.idUser = ativo.idUser";
+            String select = "SELECT * FROM usuario";
             ResultSet rs = stm.executeQuery(select); // Executa a instrução SQL fornecida;
 
             if (rs.next()) {
-                //String IDativo = Integer.toString(rs.getInt("idAtivo"));
                 // Add valores as variaveis de usuario na classe UsuarioAndAtivo;
                 ua.setIdUser(rs.getInt("idUser"));
                 ua.setNome(rs.getString("nome"));
-                ua.setIdAtivo(rs.getInt("idAtivo"));
-                ua.setNomeAtivo(rs.getString("nomeAtivo"));
+                //ua.setIdAtivo(rs.getInt("idAtivo"));
+                //ua.setNomeAtivo(rs.getString("nomeAtivo"));
                 // Validação de login
-                if ((rs.getString("email").equals(email) && rs.getString("senha").equals(senha)) && (ua.getIdAtivo() == (ativoID))) {
+                if (rs.getString("email").equals(email) && rs.getString("senha").equals(senha)) {
                     return true;
                     //if true, usuario existe e ativo já cadastrado;
                 }
@@ -51,7 +50,7 @@ public class CnxSQL {
         return false;   
     }
     
-    private int idAtivo = ua.getIdAtivo();
+    private int idAtivo = gd.getAtivoID();
     
     public void insertRam() { // Faz INSERT do uso atual da Ram do respectivo ativo;
         double ram = gd.getConsumoRam();

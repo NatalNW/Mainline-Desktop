@@ -23,7 +23,7 @@ public class UsuarioAndAtivo {
    
    
 
-     /* ATIVO */
+     /* ATIVO 
     private static int idAtivo;
     private static String nomeAtivo;
 
@@ -42,6 +42,6 @@ public class UsuarioAndAtivo {
     public static void setNomeAtivo(String nomeAtivo) {
         UsuarioAndAtivo.nomeAtivo = nomeAtivo;
     }
-    
+    */
     
 }
