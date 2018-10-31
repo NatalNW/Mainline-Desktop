@@ -31,6 +31,20 @@ public class NewClass {
     //TESTES FEITOS AQUI!!!!
     public static void main(String[] args) {
         SystemInfo si = new SystemInfo();// classe de informacoes do sistema
+        
+        /* TESTE StringBuider
+        StringBuilder select = new StringBuilder();
+        
+        int t = 123123;
+        int t2 = 23434;
+        
+        select.append("SELECT * FROM usuario WHERE email = ");
+        select.append(t);
+        select.append(" and senha = ");
+        select.append(t2);
+        */
+        
+        //System.out.println(si.getHardware().getComputerSystem().getBaseboard().getSerialNumber());
 
         // Firmware
         /* String name = si.getHardware().getComputerSystem().getFirmware().getName();

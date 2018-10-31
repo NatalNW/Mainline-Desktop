@@ -1,4 +1,6 @@
-package software;
+package software.views;
+
+import software.classes.CnxSQL;
 
 public class BemVindo extends javax.swing.JFrame {
     
@@ -71,7 +73,7 @@ public class BemVindo extends javax.swing.JFrame {
         CnxSQL cnxSql = new CnxSQL();
         
         try {
-            cnxSql.insertRam();
+            // Aqui: 
         } catch (Exception e) {
             System.out.println("errou!!");
             System.out.println(e);
@@ -79,7 +81,7 @@ public class BemVindo extends javax.swing.JFrame {
         
     }                                        
 
-    public static void main(String args[]) {
+    public static void main() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
