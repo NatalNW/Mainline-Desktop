@@ -17,15 +17,15 @@ public class GetDados {
     protected String getAtivoID(){
        String idAtivo = b.getSerialNumber();
        
-       return idAtivo;
+       return idAtivo;// retorna o id do Ativo;
     }
 
     protected long getConsumoRam() {
         long disponivelRam = hal.getMemory().getAvailable();
         long totalRam = hal.getMemory().getTotal();
-        long consumoRam = (100 * (totalRam - disponivelRam)) / totalRam;
+        long consumoRam = (100 * (totalRam - disponivelRam)) / totalRam;// Regra de 3;
 
-        return consumoRam;
+        return consumoRam; // Retorna o consumo da ram em porcentagem;
     }
 
     protected long getConsumoHD() {
@@ -38,7 +38,7 @@ public class GetDados {
 
     protected double getConsumoCPU() {
         double consumoCPU = cp.getSystemCpuLoad() * 100;
-        consumoCPU = Math.round(consumoCPU);
+        consumoCPU = Math.round(consumoCPU); // Retorna o valor do argumento arredondado para o valor long mais próximo;
 
         return consumoCPU;
     }
