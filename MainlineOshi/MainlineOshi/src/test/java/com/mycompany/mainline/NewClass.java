@@ -44,7 +44,7 @@ public class NewClass {
         select.append(t2);
         */
         
-        //System.out.println(si.getHardware().getComputerSystem().getBaseboard().getSerialNumber());
+        //System.out.println(si.getHardware().getComputerSystem().getBaseboard().getSerialNumber().length());
 
         // Firmware
         /* String name = si.getHardware().getComputerSystem().getFirmware().getName();

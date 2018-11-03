@@ -8,6 +8,7 @@ import oshi.software.os.OSFileStore;
 
 public class GetDados {
 
+    private UsuarioAndAtivo uaa = new UsuarioAndAtivo();
     private SystemInfo si = new SystemInfo();
     private HardwareAbstractionLayer hal = si.getHardware();
     private CentralProcessor cp = hal.getProcessor();
@@ -16,7 +17,7 @@ public class GetDados {
 
     protected String getAtivoID(){
        String idAtivo = b.getSerialNumber();
-       
+       uaa.setIdAtivo(idAtivo);
        return idAtivo;// retorna o id do Ativo;
     }
 

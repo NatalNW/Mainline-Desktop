@@ -7,14 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class CnxSQL {
 
     private GetDados gd = new GetDados();
     private UsuarioAndAtivo ua = new UsuarioAndAtivo();
-
+        
     // Variaveis de Cnx
-    private String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+    private final String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
     private Connection cnx = null;
     private Statement stm = null;
 
@@ -49,17 +50,38 @@ public class CnxSQL {
     }
 
     private String idAtivo = gd.getAtivoID(); // id do Ativo
+    
+    public void verificaAtivoID(){
+        try {
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            String select = "SELECT * FROM ativo";
+            ResultSet rs = stm.executeQuery(select);
+            if(rs.next()){
+                
+            }else{
+                String insert = "INSERT INTO ativo (idAtivo) VALUES ('" + idAtivo + "')";
+                stm.executeUpdate(insert);// Executa a instrução SQL fornecida, que pode ser uma instrução INSERT, UPDATE ou DELETE;
+            }
+           
+            cnx.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE); 
+            Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void insertRam() {
         double ram = gd.getConsumoRam();
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO infoRam VALUES (" + ram + ", " + idAtivo + ")";
+            String insert = "INSERT INTO infoRam (infoRam, idAtivo) VALUES (" + ram + ", '" + idAtivo + "')";
             stm.executeUpdate(insert);// Executa a instrução SQL fornecida, que pode ser uma instrução INSERT, UPDATE ou DELETE;
 
             cnx.close();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE); 
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -69,7 +91,7 @@ public class CnxSQL {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO infoHD VALUES (" + hd + ", " + idAtivo + ")";
+            String insert = "INSERT INTO infoHD VALUES (" + hd + ", '" + idAtivo + "')";
             stm.executeUpdate(insert);
 
             cnx.close();
@@ -83,7 +105,7 @@ public class CnxSQL {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO infoRam VALUES (" + cpu + ", " + idAtivo + ")";
+            String insert = "INSERT INTO infoCPU VALUES (" + cpu + ", '" + idAtivo + "')";
             stm.executeUpdate(insert);
 
             cnx.close();

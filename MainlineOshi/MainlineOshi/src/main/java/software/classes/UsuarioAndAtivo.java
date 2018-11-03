@@ -9,7 +9,7 @@ public class UsuarioAndAtivo {
         return idUser;
     }
 
-    public static void setIdUser(int idUser) {
+    protected static void setIdUser(int idUser) {
         UsuarioAndAtivo.idUser = idUser;
     }
 
@@ -17,31 +17,20 @@ public class UsuarioAndAtivo {
         return nome;
     }
 
-    public static void setNome(String nome) {
+    protected static void setNome(String nome) {
         UsuarioAndAtivo.nome = nome;
     }
    
    
 
-     /* ATIVO 
-    private static int idAtivo;
-    private static String nomeAtivo;
+     /* ATIVO */
+    private static String idAtivo;
 
-    public static int getIdAtivo() {
+    public static String getIdAtivo() {
         return idAtivo;
     }
 
-    public static void setIdAtivo(int idAtivo) {
+    protected static void setIdAtivo(String idAtivo) {
         UsuarioAndAtivo.idAtivo = idAtivo;
     }
-
-    public static String getNomeAtivo() {
-        return nomeAtivo;
-    }
-
-    public static void setNomeAtivo(String nomeAtivo) {
-        UsuarioAndAtivo.nomeAtivo = nomeAtivo;
-    }
-    */
-    
 }
