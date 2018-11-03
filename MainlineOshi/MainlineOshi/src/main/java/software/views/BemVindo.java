@@ -1,10 +1,54 @@
 package software.views;
 
+import javax.swing.JOptionPane;
 import software.classes.CnxSQL;
+import software.classes.UsuarioAndAtivo;
 
 public class BemVindo extends javax.swing.JFrame {
     
+    CnxSQL cnxSql = new CnxSQL();
+    UsuarioAndAtivo uaa = new UsuarioAndAtivo();
+    
     public BemVindo() {
+        this.ram = new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    while (true) {
+                        cnxSql.insertRam();
+                        Thread.sleep(20000);
+                    }
+                } catch(InterruptedException e){
+                    JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        };
+        this.hd = new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    while (true) {
+                        cnxSql.insertHD();
+                        Thread.sleep(20000);
+                    }
+                } catch(InterruptedException ie){
+                    JOptionPane.showMessageDialog(null, ie, "Erro!", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        };
+        this.cpu = new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    while (true) {
+                        cnxSql.insertCPU();
+                        Thread.sleep(20000);
+                    }
+                } catch(InterruptedException e){
+                    JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        };
         initComponents();
     }
     
@@ -70,15 +114,10 @@ public class BemVindo extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void bntIniciarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        CnxSQL cnxSql = new CnxSQL();
-        
-        try {
-            // Aqui: 
-        } catch (Exception e) {
-            System.out.println("errou!!");
-            System.out.println(e);
-        }
-        
+        jLabel2.setText("Captura de dados iniciada. ID deste Ativo: "+uaa.getIdAtivo());
+        new Thread(ram).start();        
+        new Thread(cpu).start();        
+        new Thread(hd).start();        
     }                                        
 
     public static void main() {
@@ -119,4 +158,8 @@ public class BemVindo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     // End of variables declaration                   
 
+    private Runnable ram;
+    private Runnable cpu;
+    private Runnable hd;
+    
 }

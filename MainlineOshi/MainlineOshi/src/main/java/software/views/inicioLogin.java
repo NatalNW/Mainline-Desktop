@@ -102,6 +102,7 @@ public class inicioLogin extends javax.swing.JFrame {
             bv.setVisible(true);// Mostra ou oculta esta janela instaciada, dependendo do valor de parâmetro booleano;
             dispose();// Fecha a tela anterior aberta(inicioLogin) e libera memoria para o SO;
             bv.jlBemVindo.setText("Bem vindo, " + uaa.getNome());
+            cnxSql.verificaAtivoID();
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
         }
