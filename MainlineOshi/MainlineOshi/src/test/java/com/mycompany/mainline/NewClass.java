@@ -2,6 +2,7 @@
 package com.mycompany.mainline;
 //TESTES FEITOS AQUI!!!!
 
+import java.net.SocketException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Timer;
@@ -13,6 +14,7 @@ import oshi.hardware.Display;
 import oshi.hardware.HWDiskStore;
 import oshi.hardware.HWPartition;
 import oshi.hardware.HardwareAbstractionLayer;
+import oshi.hardware.NetworkIF;
 import oshi.hardware.PowerSource;
 import oshi.hardware.UsbDevice;
 import oshi.hardware.common.AbstractHardwareAbstractionLayer;
@@ -29,9 +31,39 @@ import oshi.util.FormatUtil;
 public class NewClass {
 
     //TESTES FEITOS AQUI!!!!
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, SocketException {
         SystemInfo si = new SystemInfo();// classe de informacoes do sistema
+
+       /* TESTE Rede
+        NetworkIF[] net = si.getHardware().getNetworkIFs();
+        int deltaTime = 1000;
+        while (true) {
+            net[0].updateNetworkStats();
+            long receb = net[0].getBytesRecv();
+            long env = net[0].getBytesSent();
+            Thread.sleep(deltaTime);
+            net[0].updateNetworkStats();
+            long envAgain = net[0].getBytesSent() - env;
+            long recebAgain = net[0].getBytesRecv() - receb;
+
+            float d = (float) ((recebAgain / deltaTime) * 8);
+            float u = (float) ((envAgain / deltaTime) * 8);
+
+            //System.out.println(sla);
+            System.out.println(d + " | " + u);
+        }
+       
+        NetworkIF[] net = si.getHardware().getNetworkIFs();
+       
+        String nomeDominio = si.getOperatingSystem().getNetworkParams().getDomainName();
+        String gatewayIPV4 = si.getOperatingSystem().getNetworkParams().getIpv4DefaultGateway();
+        String DNS = si.getOperatingSystem().getNetworkParams().getDomainName();
         
+       for (int i = 0; i < net.length; i++) {
+            System.out.println(net[i].getNetworkInterface().isUp());
+       }
+        System.out.println(DNS);
+        */
         /* TESTE StringBuider
         StringBuilder select = new StringBuilder();
         
@@ -42,10 +74,8 @@ public class NewClass {
         select.append(t);
         select.append(" and senha = ");
         select.append(t2);
-        */
-        
+         */
         //System.out.println(si.getHardware().getComputerSystem().getBaseboard().getSerialNumber().length());
-
         // Firmware
         /* String name = si.getHardware().getComputerSystem().getFirmware().getName();
         String date = si.getHardware().getComputerSystem().getFirmware().getReleaseDate();
@@ -74,30 +104,28 @@ public class NewClass {
                 //}, delay, interval);
          */
         // Consumo RAM
-          /*  HardwareAbstractionLayer hal = si.getHardware();
+        /*  HardwareAbstractionLayer hal = si.getHardware();
             long memoriaDisponivel = hal.getMemory().getAvailable();
             long memoriaTotal = hal.getMemory().getTotal();
             long memUso = memoriaTotal - memoriaDisponivel;
             long consumo = ((100*memUso)/ memoriaTotal);
-       */
+         */
         // Consumo HD
-          /*  OSFileStore[] fls = si.getOperatingSystem().getFileSystem().getFileStores(); 
+        /*  OSFileStore[] fls = si.getOperatingSystem().getFileSystem().getFileStores(); 
             long fs = new OSFileStore().getTotalSpace();
             long usageHD = fls[0].getTotalSpace() - fls[0].getUsableSpace();
             long consumoHD = (100*usageHD)/ fls[0].getTotalSpace();
-            */
-           // System.out.println(consumo);
-            
+         */
+        // System.out.println(consumo);
         // Consumo CPU
-      /* HardwareAbstractionLayer hal = si.getHardware();
+        /* HardwareAbstractionLayer hal = si.getHardware();
         CentralProcessor cp = hal.getProcessor();
         double teste = cp.getSystemCpuLoad() * 100;
                 teste = Math.round(teste);
                 System.out.println(teste);
-        */  
-
+         */
         // TIMER
-       /* int delay = 5000;
+        /* int delay = 5000;
         int interval = 1000;
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -106,7 +134,7 @@ public class NewClass {
                 
             }
         }, delay, interval);
-*/
+         */
         // Info SO
         /* int processos = si.getOperatingSystem().getProcessCount();
                 int IDprocessos = si.getOperatingSystem().getProcessId();
@@ -129,9 +157,7 @@ public class NewClass {
                 
                 System.out.println("\n"+Nome_Da_Variavel+"\n");//
          */
-        
-       // testeMetodos tm = new testeMetodos();
-        
+        // testeMetodos tm = new testeMetodos();
         //System.out.println(tm.getConsumoCPU());
     }
 }

@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
 
 public class CnxSQL {
 
-    private GetDados gd = new GetDados();
-    private UsuarioAndAtivo ua = new UsuarioAndAtivo();
-        
+    private final GetDados gd = new GetDados();
+    private final UsuarioAndAtivo ua = new UsuarioAndAtivo();
+
     // Variaveis de Cnx
     private final String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
     private Connection cnx = null;
@@ -49,24 +49,25 @@ public class CnxSQL {
         return false;
     }
 
-    private String idAtivo = gd.getAtivoID(); // id do Ativo
-    
-    public void verificaAtivoID(){
+    private final String idAtivo = gd.getAtivoID(); // id do Ativo
+
+    public void verificaAtivoID() {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
             String select = "SELECT * FROM ativo";
             ResultSet rs = stm.executeQuery(select);
-            if(rs.next()){
-                
-            }else{
+            if (rs.next()) {
+
+            } else {
+                stm = cnx.createStatement();
                 String insert = "INSERT INTO ativo (idAtivo) VALUES ('" + idAtivo + "')";
                 stm.executeUpdate(insert);// Executa a instrução SQL fornecida, que pode ser uma instrução INSERT, UPDATE ou DELETE;
             }
-           
+
             cnx.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -81,7 +82,7 @@ public class CnxSQL {
 
             cnx.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -91,7 +92,7 @@ public class CnxSQL {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO infoHD VALUES (" + hd + ", '" + idAtivo + "')";
+            String insert = "INSERT INTO infoHD (infoHD, idAtivo) VALUES (" + hd + ", '" + idAtivo + "')";
             stm.executeUpdate(insert);
 
             cnx.close();
@@ -105,7 +106,22 @@ public class CnxSQL {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO infoCPU VALUES (" + cpu + ", '" + idAtivo + "')";
+            String insert = "INSERT INTO infoCPU (infoCPU, idAtivo) VALUES (" + cpu + ", '" + idAtivo + "')";
+            stm.executeUpdate(insert);
+
+            cnx.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void insertRede() throws InterruptedException {
+        float download = gd.getDownload();
+        float upload = gd.getUpload();
+        try {
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            String insert = "INSERT INTO infoRede (upload, download, idAtivo) VALUES (" + upload + "," + download + ",'" + idAtivo + "')";
             stm.executeUpdate(insert);
 
             cnx.close();

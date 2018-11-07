@@ -2,11 +2,13 @@ package software.views;
 
 import javax.swing.JOptionPane;
 import software.classes.CnxSQL;
-import software.classes.GetDados;
 import software.classes.UsuarioAndAtivo;
 
 public class inicioLogin extends javax.swing.JFrame {
-
+    
+    private final CnxSQL cnxSql = new CnxSQL();
+    private final UsuarioAndAtivo uaa = new UsuarioAndAtivo();
+    
     public inicioLogin() {
         initComponents();
     }
@@ -94,9 +96,6 @@ public class inicioLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
-        CnxSQL cnxSql = new CnxSQL();
-        UsuarioAndAtivo uaa = new UsuarioAndAtivo();
-
         if (cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText())) {// Autenticação de login;
             BemVindo bv = new BemVindo();
             bv.setVisible(true);// Mostra ou oculta esta janela instaciada, dependendo do valor de parâmetro booleano;
@@ -133,11 +132,8 @@ public class inicioLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new inicioLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new inicioLogin().setVisible(true);
         });
     }
 

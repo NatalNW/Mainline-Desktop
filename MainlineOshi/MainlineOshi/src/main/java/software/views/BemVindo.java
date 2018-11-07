@@ -6,49 +6,50 @@ import software.classes.UsuarioAndAtivo;
 
 public class BemVindo extends javax.swing.JFrame {
     
-    CnxSQL cnxSql = new CnxSQL();
-    UsuarioAndAtivo uaa = new UsuarioAndAtivo();
+    private CnxSQL cnxSql = new CnxSQL();
+    private final UsuarioAndAtivo uaa = new UsuarioAndAtivo();
     
     public BemVindo() {
-        this.ram = new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    while (true) {
-                        cnxSql.insertRam();
-                        Thread.sleep(20000);
-                    }
-                } catch(InterruptedException e){
-                    JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
+       this.ram = () -> {
+           try{
+               while (true) {
+                   cnxSql.insertRam();
+                   Thread.sleep(20000);
+               }
+           } catch(InterruptedException e){
+               JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
+           }
+       };
+        this.hd = () -> {
+            try{
+                while (true) {
+                    cnxSql.insertHD();
+                    Thread.sleep(60000);
                 }
+            } catch(InterruptedException ie){
+                JOptionPane.showMessageDialog(null, ie, "Erro!", JOptionPane.ERROR_MESSAGE);
             }
-        };
-        this.hd = new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    while (true) {
-                        cnxSql.insertHD();
-                        Thread.sleep(20000);
-                    }
-                } catch(InterruptedException ie){
-                    JOptionPane.showMessageDialog(null, ie, "Erro!", JOptionPane.ERROR_MESSAGE);
+       };
+        this.cpu = () -> {
+            try{
+                while (true) {
+                    cnxSql.insertCPU();
+                    Thread.sleep(20000);
                 }
+            } catch(InterruptedException e){
+                JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
             }
-        };
-        this.cpu = new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    while (true) {
-                        cnxSql.insertCPU();
-                        Thread.sleep(20000);
-                    }
-                } catch(InterruptedException e){
-                    JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
+       };
+        this.rede = () -> {
+            try{
+                while (true) {
+                    cnxSql.insertRede();
+                    Thread.sleep(20000);
                 }
+            } catch(InterruptedException e){
+                JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
             }
-        };
+       };
         initComponents();
     }
     
@@ -113,11 +114,12 @@ public class BemVindo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void bntIniciarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void bntIniciarActionPerformed(java.awt.event.ActionEvent evt){                                         
         jLabel2.setText("Captura de dados iniciada. ID deste Ativo: "+uaa.getIdAtivo());
         new Thread(ram).start();        
         new Thread(cpu).start();        
         new Thread(hd).start();        
+        new Thread(rede).start();        
     }                                        
 
     public static void main() {
@@ -145,10 +147,8 @@ public class BemVindo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BemVindo().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new BemVindo().setVisible(true);
         });
     }
 
@@ -158,8 +158,9 @@ public class BemVindo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     // End of variables declaration                   
 
-    private Runnable ram;
-    private Runnable cpu;
-    private Runnable hd;
+    private final Runnable ram;
+    private final Runnable cpu;
+    private final Runnable hd;
+    private final Runnable rede;
     
 }
