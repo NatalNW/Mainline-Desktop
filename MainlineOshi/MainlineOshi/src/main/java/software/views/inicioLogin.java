@@ -2,12 +2,12 @@ package software.views;
 
 import javax.swing.JOptionPane;
 import software.classes.CnxSQL;
-import software.classes.UsuarioAndAtivo;
+import software.classes.Usuario;
 
 public class inicioLogin extends javax.swing.JFrame {
     
     private final CnxSQL cnxSql = new CnxSQL();
-    private final UsuarioAndAtivo uaa = new UsuarioAndAtivo();
+    private final Usuario uaa = new Usuario();
     
     public inicioLogin() {
         initComponents();
@@ -97,11 +97,11 @@ public class inicioLogin extends javax.swing.JFrame {
 
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
         if (cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText())) {// Autenticação de login;
+            cnxSql.verificaAtivoID();
             BemVindo bv = new BemVindo();
             bv.setVisible(true);// Mostra ou oculta esta janela instaciada, dependendo do valor de parâmetro booleano;
             dispose();// Fecha a tela anterior aberta(inicioLogin) e libera memoria para o SO;
             bv.jlBemVindo.setText("Bem vindo, " + uaa.getNome());
-            cnxSql.verificaAtivoID();
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
         }
