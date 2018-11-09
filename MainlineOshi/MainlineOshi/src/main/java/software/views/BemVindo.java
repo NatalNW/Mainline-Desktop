@@ -2,12 +2,14 @@ package software.views;
 
 import javax.swing.JOptionPane;
 import software.classes.CnxSQL;
-import software.classes.UsuarioAndAtivo;
+import software.classes.DadosOshi;
+import software.classes.Usuario;
 
 public class BemVindo extends javax.swing.JFrame {
     
     private CnxSQL cnxSql = new CnxSQL();
-    private final UsuarioAndAtivo uaa = new UsuarioAndAtivo();
+    private final DadosOshi oshi = new DadosOshi();
+    private final Usuario user = new Usuario();  
     
     public BemVindo() {
        this.ram = () -> {
@@ -36,8 +38,8 @@ public class BemVindo extends javax.swing.JFrame {
                     cnxSql.insertCPU();
                     Thread.sleep(20000);
                 }
-            } catch(InterruptedException e){
-                JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
+            } catch(InterruptedException ie){
+                JOptionPane.showMessageDialog(null, ie, "Erro!", JOptionPane.ERROR_MESSAGE);
             }
        };
         this.rede = () -> {
@@ -46,8 +48,8 @@ public class BemVindo extends javax.swing.JFrame {
                     cnxSql.insertRede();
                     Thread.sleep(20000);
                 }
-            } catch(InterruptedException e){
-                JOptionPane.showMessageDialog(null, e, "Erro!", JOptionPane.ERROR_MESSAGE);
+            } catch(InterruptedException ie){
+                JOptionPane.showMessageDialog(null, ie, "Erro!", JOptionPane.ERROR_MESSAGE);
             }
        };
         initComponents();
@@ -77,10 +79,10 @@ public class BemVindo extends javax.swing.JFrame {
         });
         
         jlBemVindo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N   
-
+       
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Clque no botão iniciar para coletar os dados de seu ativo");
-
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,11 +117,11 @@ public class BemVindo extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void bntIniciarActionPerformed(java.awt.event.ActionEvent evt){                                         
-        jLabel2.setText("Captura de dados iniciada. ID deste Ativo: "+uaa.getIdAtivo());
+        jLabel2.setText("Captura de dados iniciada. ID deste Ativo: "+oshi.getAtivoID());
         new Thread(ram).start();        
         new Thread(cpu).start();        
         new Thread(hd).start();        
-        new Thread(rede).start();        
+        new Thread(rede).start();
     }                                        
 
     public static void main() {

@@ -7,9 +7,8 @@ import oshi.hardware.HardwareAbstractionLayer;
 import oshi.hardware.NetworkIF;
 import oshi.software.os.OSFileStore;
 
-public class GetDados {
+public class DadosOshi {
 
-    private final UsuarioAndAtivo uaa = new UsuarioAndAtivo();
     private final SystemInfo si = new SystemInfo();
     private final HardwareAbstractionLayer hal = si.getHardware();
     private final CentralProcessor cp = hal.getProcessor();
@@ -17,9 +16,9 @@ public class GetDados {
     private final OSFileStore[] fls = si.getOperatingSystem().getFileSystem().getFileStores();
     private final NetworkIF[] net = hal.getNetworkIFs();
 
-    protected String getAtivoID() {
+    public String getAtivoID() {
         String idAtivo = b.getSerialNumber();
-        uaa.setIdAtivo(idAtivo);
+
         return idAtivo;// retorna o id do Ativo;
     }
 
@@ -56,7 +55,7 @@ public class GetDados {
         long envAgain = net[0].getBytesSent() - env;
 
         float upload = (float) ((envAgain / deltaTime) * 8);
-        
+
         return upload;
     }
 
@@ -70,7 +69,7 @@ public class GetDados {
         long recebAgain = net[0].getBytesRecv() - receb;
 
         float dowload = (float) ((recebAgain / deltaTime) * 8);
-        
+
         return dowload;
     }
 }
