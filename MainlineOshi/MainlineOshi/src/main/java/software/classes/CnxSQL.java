@@ -11,8 +11,9 @@ import javax.swing.JOptionPane;
 
 public class CnxSQL {
 
-    private final GetDados gd = new GetDados();
+    private final DadosOshi oshi = new DadosOshi();
     private final Usuario user = new Usuario();
+    private final String idAtivo = oshi.getAtivoID(); // id do Ativo
 
     // Variaveis de Cnx
     private final String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
@@ -44,8 +45,6 @@ public class CnxSQL {
         return false;
     }
 
-    private final String idAtivo = gd.getAtivoID(); // id do Ativo
-
     public void verificaAtivoID() {// Verifica se ativo já existe no BD;
         try {
             cnx = DriverManager.getConnection(url);
@@ -66,7 +65,7 @@ public class CnxSQL {
     }
 
     public void insertRam() {
-        double ram = gd.getConsumoRam();
+        double ram = oshi.getConsumoRam();
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
@@ -81,7 +80,7 @@ public class CnxSQL {
     }
 
     public void insertHD() {
-        double hd = gd.getConsumoHD();
+        double hd = oshi.getConsumoHD();
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
@@ -96,7 +95,7 @@ public class CnxSQL {
     }
 
     public void insertCPU() {
-        double cpu = gd.getConsumoCPU();
+        double cpu = oshi.getConsumoCPU();
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
@@ -111,8 +110,8 @@ public class CnxSQL {
     }
 
     public void insertRede() throws InterruptedException {
-        float download = gd.getDownload();
-        float upload = gd.getUpload();
+        float download = oshi.getDownload();
+        float upload = oshi.getUpload();
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();

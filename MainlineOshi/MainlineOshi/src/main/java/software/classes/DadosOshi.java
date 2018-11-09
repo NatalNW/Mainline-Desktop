@@ -7,9 +7,8 @@ import oshi.hardware.HardwareAbstractionLayer;
 import oshi.hardware.NetworkIF;
 import oshi.software.os.OSFileStore;
 
-public class GetDados {
+public class DadosOshi {
 
-    private final Usuario uaa = new Usuario();
     private final SystemInfo si = new SystemInfo();
     private final HardwareAbstractionLayer hal = si.getHardware();
     private final CentralProcessor cp = hal.getProcessor();
