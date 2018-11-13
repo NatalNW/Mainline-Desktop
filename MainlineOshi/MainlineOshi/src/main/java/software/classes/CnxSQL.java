@@ -25,18 +25,20 @@ public class CnxSQL {
             // Abre conexão
             cnx = DriverManager.getConnection(url);// A classe DriverManager tentará carregar as classes de driver referenciadas na propriedade de sistema "jdbc.drivers". Isso permite que um usuário personalize os drivers JDBC usados por seus aplicativos;
             stm = cnx.createStatement();// Cria um objeto Statement para enviar instruções SQL para o BD;
-            String select = "SELECT * FROM usuario";// Faz select
+            //String select = "SELECT * FROM usuario";
+            String select = "SELECT * FROM usuario WHERE email = '"+email+"' and senha = '"+senha+"'";// Faz select
             ResultSet rs = stm.executeQuery(select);// Executa a instrução SQL fornecida, que retorna um objeto ResultSet;
 
             if (rs.next()) { // Le os dados no BD;
                
-                if (rs.getString("email").equals(email) && rs.getString("senha").equals(senha)) {
+               // if (rs.getString("email").equals(email) && rs.getString("senha").equals(senha)) {
                     user.setNome(rs.getString("nome"));
                     return true; // if email e senha fornecidos pelo usuario existirem no BD, retorna true;
-                }
+                //}
 
-                cnx.close();
+                
             }
+            cnx.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
