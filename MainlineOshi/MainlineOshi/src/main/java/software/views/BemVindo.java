@@ -9,7 +9,6 @@ public class BemVindo extends javax.swing.JFrame {
     
     private CnxSQL cnxSql = new CnxSQL();
     private final DadosOshi oshi = new DadosOshi();
-    private final Usuario user = new Usuario();  
     
     public BemVindo() {
        this.ram = () -> {

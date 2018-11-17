@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class CnxSQL {
-
+    private final JSlack jslack = new JSlack();
     private final DadosOshi oshi = new DadosOshi();
     private final Usuario user = new Usuario();
     private final String idAtivo = oshi.getAtivoID(); // id do Ativo
@@ -30,13 +30,11 @@ public class CnxSQL {
             ResultSet rs = stm.executeQuery(select);// Executa a instrução SQL fornecida, que retorna um objeto ResultSet;
 
             if (rs.next()) { // Le os dados no BD;
-               
                // if (rs.getString("email").equals(email) && rs.getString("senha").equals(senha)) {
                     user.setNome(rs.getString("nome"));
+                    jslack.usuarioLogado(user.getNome());
                     return true; // if email e senha fornecidos pelo usuario existirem no BD, retorna true;
                 //}
-
-                
             }
             cnx.close();
 
