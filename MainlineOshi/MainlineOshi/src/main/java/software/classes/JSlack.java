@@ -33,7 +33,7 @@ public class JSlack {
         Payload payload = Payload.builder()
                 .channel("#random")
                 .username("Mainline Bot")
-                .text(componente+" está a cima do limite")
+                .text(componente+" está acima do limite")
                 .build();
 
         Slack slack = Slack.getInstance();

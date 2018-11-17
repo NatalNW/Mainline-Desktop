@@ -37,7 +37,7 @@ public class NewClass {
 
     //TESTES FEITOS AQUI!!!!
     public static void main(String[] args) throws InterruptedException, SocketException {
-       // SystemInfo si = new SystemInfo();// classe de informacoes do sistema
+        SystemInfo si = new SystemInfo();// classe de informacoes do sistema
        
        // TESTE SLACK !!!
        /* String url = "https://hooks.slack.com/services/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";
@@ -128,26 +128,38 @@ public class NewClass {
             //}, delay, interval);
          */
         // Consumo RAM
-        /*  HardwareAbstractionLayer hal = si.getHardware();
+       // NewClass1 c = new NewClass1();
+         /* HardwareAbstractionLayer hal = si.getHardware();
             long memoriaDisponivel = hal.getMemory().getAvailable();
             long memoriaTotal = hal.getMemory().getTotal();
             long memUso = memoriaTotal - memoriaDisponivel;
             long consumo = ((100*memUso)/ memoriaTotal);
-         */
+        */
+           
+        
         // Consumo HD
-        /*  OSFileStore[] fls = si.getOperatingSystem().getFileSystem().getFileStores();
+           /* OSFileStore[] fls = si.getOperatingSystem().getFileSystem().getFileStores();
             long fs = new OSFileStore().getTotalSpace();
             long usageHD = fls[0].getTotalSpace() - fls[0].getUsableSpace();
             long consumoHD = (100*usageHD)/ fls[0].getTotalSpace();
-         */
+            */
+          
+         
         // System.out.println(consumo);
         // Consumo CPU
-        /* HardwareAbstractionLayer hal = si.getHardware();
+       /*  HardwareAbstractionLayer hal = si.getHardware();
             CentralProcessor cp = hal.getProcessor();
-            double teste = cp.getSystemCpuLoad() * 100;
+            
+            
+            //  c.insertComponente("teste", teste);
+            while (true) {
+                float teste = (float) (cp.getSystemCpuLoad() * 100);
             teste = Math.round(teste);
             System.out.println(teste);
-         */
+            Thread.sleep(1000);
+        }
+         */   
+         
         // TIMER
         /* int delay = 5000;
             int interval = 1000;
@@ -184,4 +196,6 @@ public class NewClass {
         // testeMetodos tm = new testeMetodos();
         //System.out.println(tm.getConsumoCPU());
     }
+    
+   
 }
