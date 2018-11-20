@@ -3,46 +3,56 @@ package software.views;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import software.classes.CnxSQL;
 import software.classes.DadosOshi;
-import software.classes.loopInsert;
+import software.classes.JSlack;
 
 public class BemVindo extends javax.swing.JFrame {
 
     private int i = 0;
-    private final DadosOshi oshi = new DadosOshi();
-    private loopInsert loop = new loopInsert();
+    private final JSlack jslack = new JSlack();
+    private DadosOshi oshi = new DadosOshi();
+    private CnxSQL cnxSql = new CnxSQL();
 
     public BemVindo() {
         this.ram = () -> {
-            try {
-                loop.insertComponente("infoRam", "infoRam", oshi.getConsumoRam(), 20000);
-            } catch (InterruptedException ex) {
-                JOptionPane.showMessageDialog(null, "loop bv Ram", "Erro!", JOptionPane.ERROR_MESSAGE);
-                Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
+            while (true) {
+                try {
+                    cnxSql.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 20000);
+                } catch (InterruptedException ex) {
+                    JOptionPane.showMessageDialog(null, "loop bv Ram", "Erro!", JOptionPane.ERROR_MESSAGE);
+                    Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         };
         this.hd = () -> {
-            try {
-                loop.insertComponente("infoHD", "infoHD", oshi.getConsumoHD(), 60000);
-            } catch (InterruptedException ex) {
-                 JOptionPane.showMessageDialog(null, "loop bv hd", "Erro!", JOptionPane.ERROR_MESSAGE);
-                Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
+            while (true) {
+                try {
+                    cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 60000);
+                } catch (InterruptedException ex) {
+                    JOptionPane.showMessageDialog(null, "loop bv hd", "Erro!", JOptionPane.ERROR_MESSAGE);
+                    Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         };
         this.cpu = () -> {
-            try {
-                loop.insertComponente("infoCpu", "infoCpu", oshi.getConsumoCPU(), 20000);
-            } catch (InterruptedException ex) {
-                 JOptionPane.showMessageDialog(null, "loop bv cpu", "Erro!", JOptionPane.ERROR_MESSAGE);
-                Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
+            while (true) {
+                try {
+                    cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 20000);
+                } catch (InterruptedException ex) {
+                    JOptionPane.showMessageDialog(null, "loop bv cpu", "Erro!", JOptionPane.ERROR_MESSAGE);
+                    Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         };
         this.rede = () -> {
-            try {
-                loop.insertRede();
-            } catch (InterruptedException ex) {
-                JOptionPane.showMessageDialog(null, "loop bv Rede", "Erro!", JOptionPane.ERROR_MESSAGE);
-                Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
+            while (true) {
+                try {
+                    cnxSql.insertRede();
+                } catch (InterruptedException ex) {
+                    JOptionPane.showMessageDialog(null, "loop bv Rede", "Erro!", JOptionPane.ERROR_MESSAGE);
+                    Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         };
         initComponents();
@@ -113,13 +123,15 @@ public class BemVindo extends javax.swing.JFrame {
         if (i % 2 == 0) {
             jLabel2.setText("Captura de dados iniciada. ID deste Ativo: " + oshi.getAtivoID());
             bntIniciar.setText("Fechar");
+            jslack.capturaIniciada(oshi.getAtivoID());
             new Thread(ram).start();
             new Thread(cpu).start();
             new Thread(hd).start();
             new Thread(rede).start();
             i++;
         } else {
-            dispose();
+            jslack.fimCaptura();
+            System.exit(0); // fecha a aplicação com saida 0(sem erros)
         }
     }
 

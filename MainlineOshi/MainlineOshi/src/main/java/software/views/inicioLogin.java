@@ -99,7 +99,6 @@ public class inicioLogin extends javax.swing.JFrame {
 
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
         if (cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText())) {// Autenticação de login;
-            cnxSql.verificaAtivoID();
             bv.jlBemVindo.setText("Bem vindo, " + user.getNome());
             bv.setVisible(true);// Mostra ou oculta esta janela instaciada, dependendo do valor de parâmetro booleano;
             dispose();// Fecha a tela anterior aberta(inicioLogin) e libera memoria para o SO;  
