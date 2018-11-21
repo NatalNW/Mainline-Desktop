@@ -100,6 +100,6 @@ public class CnxSQL {
             JOptionPane.showMessageDialog(null, "CnxSQL Rede " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Thread.sleep(20000);
+        Thread.sleep(60000);
     }
 }
