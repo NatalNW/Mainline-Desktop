@@ -15,6 +15,8 @@ public class CnxSQL {
     private final DadosOshi oshi = new DadosOshi();
     private final Usuario user = new Usuario();
     private final String idAtivo = oshi.getAtivoID(); // id do Ativo
+    private String dia = oshi.getDia();
+    private String hora = oshi.getHora();
 
     // Variaveis de Cnx
     protected final String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
@@ -70,7 +72,7 @@ public class CnxSQL {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO " + tabela + " (" + coluna + ", idAtivo) VALUES (" + valorComponente + ", '" + idAtivo + "')";
+            String insert = "INSERT INTO " + tabela + " (" + coluna + ", dia, hora, idAtivo) VALUES (" + valorComponente + ", '"+dia+"', '"+hora+"', '" + idAtivo + "')";
             stm.executeUpdate(insert);
 
             cnx.close();
@@ -90,7 +92,7 @@ public class CnxSQL {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO infoRede (upload, download, idAtivo) VALUES (" + upload + "," + download + ",'" + idAtivo + "')";
+            String insert = "INSERT INTO infoRede (upload, download, dia, hora, idAtivo) VALUES (" + upload + "," + download + ", '"+dia+"', '"+hora+"','" + idAtivo + "')";
             stm.executeUpdate(insert);
 
             cnx.close();
