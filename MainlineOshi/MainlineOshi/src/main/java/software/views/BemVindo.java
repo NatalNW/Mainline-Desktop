@@ -28,7 +28,7 @@ public class BemVindo extends javax.swing.JFrame {
         this.hd = () -> {
             while (true) {
                 try {
-                    cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 60000);
+                    cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 120000);
                 } catch (InterruptedException ex) {
                     JOptionPane.showMessageDialog(null, "loop bv hd", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
@@ -38,7 +38,7 @@ public class BemVindo extends javax.swing.JFrame {
         this.cpu = () -> {
             while (true) {
                 try {
-                    cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 120000);
+                    cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 60000);
                 } catch (InterruptedException ex) {
                     JOptionPane.showMessageDialog(null, "loop bv cpu", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
