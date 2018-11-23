@@ -43,7 +43,6 @@ public class CnxSQL {
                 user.setNome(rs.getString("nome"));
                 jslack.usuarioLogado(user.getNome());
                 verificaAtivoID();
-                arq.escreverlog(quebraLinha + data + hora + " Usuário já existe no banco!");
                 return true; // if email e senha fornecidos pelo usuario existirem no BD, retorna true;
                 //}
             }
