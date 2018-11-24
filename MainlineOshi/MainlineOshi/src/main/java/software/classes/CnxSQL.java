@@ -21,8 +21,8 @@ public class CnxSQL {
     public arquivoLog arq = new arquivoLog();
     String quebraLinha = System.getProperty("line.separator");
     Date dataHoraAtual = new Date();
-    String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-    String hora = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
+    String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+    String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
 
     // Variaveis de Cnx
     protected final String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
@@ -50,7 +50,7 @@ public class CnxSQL {
 
         } catch (SQLException ex) {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverlog(quebraLinha + data + hora + " Erro na execução! Usuário ou senha inválidos. método: autenticaUsuario.");
+            arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Usuário ou senha inválidos. método: autenticaUsuario.");
         }
 
         return false;
@@ -63,18 +63,18 @@ public class CnxSQL {
             String select = "SELECT * FROM ativo WHERE idAtivo = '" + idAtivo + "'";
             ResultSet rs = stm.executeQuery(select);
             if (rs.next()) {
-                arq.escreverlog(quebraLinha + data + hora + " ID já existe no banco!");
+                arq.escreverlog(quebraLinha + data2 + hora2 + " ID já existe no banco!");
             } else {
                 String insert = "INSERT INTO ativo (idAtivo) VALUES ('" + idAtivo + "')";
                 stm.executeUpdate(insert);// Executa a instrução SQL fornecida, que pode ser uma instrução INSERT, UPDATE ou DELETE;
-                arq.escreverlog(quebraLinha + data + hora + " Novo ID inserido no banco!");
+                arq.escreverlog(quebraLinha + data2 + hora2 + " Novo ID inserido no banco!");
             }
 
             cnx.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverlog(quebraLinha + data + hora + " Erro na execução! Possivelmente não foi possível verificar ID. método: verificaAtivoID.");
+            arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Possivelmente não foi possível verificar ID. método: verificaAtivoID.");
         }
     }
 
@@ -84,12 +84,12 @@ public class CnxSQL {
             stm = cnx.createStatement();
             String insert = "INSERT INTO " + tabela + " (" + coluna + ", idAtivo) VALUES (" + valorComponente + ", '" + idAtivo + "')";
             stm.executeUpdate(insert);
-            arq.escreverlog(quebraLinha + data + hora + " captando dados do componente com sucesso!");
+            arq.escreverlog(quebraLinha + data2 + hora2 + " captando dados do componente com sucesso!");
             cnx.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "CnxSQL Componente " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverlog(quebraLinha + data + hora + " Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.");
+            arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.");
         }
         if (valorComponente > 80) {
             jslack.alertaComponente(nomeComponente);
@@ -106,12 +106,12 @@ public class CnxSQL {
             stm = cnx.createStatement();
             String insert = "INSERT INTO infoRede (upload, download, idAtivo) VALUES (" + upload + "," + download + ",'" + idAtivo + "')";
             stm.executeUpdate(insert);
-            arq.escreverlog(quebraLinha + data + hora + " captando informações de rede");
+            arq.escreverlog(quebraLinha + data2 + hora2 + " captando informações de rede");
             cnx.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "CnxSQL Rede " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverlog(quebraLinha + data + hora + " Erro na execução! Falha ao captar informações de rede. método: insertRede.");
+            arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Falha ao captar informações de rede. método: insertRede.");
         }
         Thread.sleep(20000);
     }
