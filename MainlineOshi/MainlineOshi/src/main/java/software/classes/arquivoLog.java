@@ -34,37 +34,15 @@ public class arquivoLog {
     public void escreverlog(String erros) throws IOException {
         
         
-//objeto que insere a data no nome do arquivo txt, isso irá mudar o arquivo
+        //objeto que insere a data no nome do arquivo txt, isso irá mudar o arquivo
         //de acordo com o dia
-       String dataArq = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-//        arquivo = new File(workingDir.concat("\\Pictures\\log"));
-//        try{
-//            fileWriter = new FileWriter(arquivo,true);
-//            bufferedWriter = new BufferedWriter(fileWriter);
-//            bufferedWriter.write("escrevendo");
-//            
-//            bufferedWriter.close();
-//            fileWriter.close();
-//            
-//            FileReader ler = new FileReader(arquivo);
-//            BufferedReader lerarq = new BufferedReader(ler);
-//            String linha = lerarq.readLine();
-//            
-//            while(linha !=null) {
-//                System.out.println(linha);
-//                linha = lerarq.readLine();
-//            }
-//            
-//        } catch(IOException ex) {
-//            
-//        }
-        
-        
+       String dataArq = new SimpleDateFormat("dd-MM-yyyy").format(new Date());     
 //        //cria a pasta
 //        File diretorio = new File("Logs");
 //        if(!diretorio.exists()){
 //        diretorio.mkdir();
 //        } 
+
         //cria o arquivo txt, escreve e grava(close).
         
         BufferedWriter writer = new BufferedWriter(new FileWriter( "log - " + dataArq +".txt", true));
@@ -83,40 +61,6 @@ public class arquivoLog {
 //        }
 //        
         
-//        arquivo = new File(workingDir.concat("\\Desktop\\log"));
-//        for (int c = 1; c <= 3; c++) {
-//            if (!arquivo.exists()) {
-//                arquivo.mkdir();
-//            } else {
-//
-//                
-//                arquivo = new File("C:\\Users\\aluno\\Desktop\\log" + time);
-//                if (!arquivo.exists()) {
-//                    arquivo.mkdir();
-//                } else {
-//
-//                   
-//
-//                     arq = new File("C:\\Users\\aluno\\Desktop\\log" + time + "\\" + timeStamp + ".txt");
-//                     
-//                     fileWriter = new FileWriter(arq);
-//                    try {
-//                        arquivo.createNewFile();
-//                    } catch (IOException ex) {
-//                        Logger.getLogger(arquivoLog.class.getName()).log(Level.SEVERE, null, ex);
-//
-//                    }
-//
-//                    //objeto que insere a data no nome do arquivo txt, isso irá mudar o arquivo
-//                    //de acordo com o dia
-//                    //String data = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-//                    //cria o arquivo, escreve e grava.
-//                    BufferedWriter writer = new BufferedWriter(fileWriter);
-//                    writer.write(erros);
-//                    writer.close();
-//              }
-//
-//            }
-//        }
+
     }
 }
