@@ -51,7 +51,7 @@ public class CnxSQL {
 
         } catch (SQLException ex) {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Usuário ou senha inválidos. método: autenticaUsuario.");
+             arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
         }
 
         return false;
@@ -75,7 +75,7 @@ public class CnxSQL {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Possivelmente não foi possível verificar ID. método: verificaAtivoID.");
+             arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
         }
     }
 
@@ -90,7 +90,7 @@ public class CnxSQL {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "CnxSQL Componente " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.");
+             arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
         }
         if (valorComponente > 80) {
             jslack.alertaComponente(nomeComponente);
@@ -112,7 +112,7 @@ public class CnxSQL {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "CnxSQL Rede " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Falha ao captar informações de rede. método: insertRede.");
+             arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
         }
         Thread.sleep(20000);
     }

@@ -37,7 +37,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv Ram", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " erro loop bv ram. construtor: BemVindo");
+                         arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -58,7 +58,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv hd", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " erro loop bv hd. construtor: BemVindo");
+                         arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -78,7 +78,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv cpu", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " erro loop bv cpu. construtor: BemVindo");
+                        arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -97,7 +97,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv Rede", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " erro loop bv rede. construtor: BemVindo");
+                        arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
