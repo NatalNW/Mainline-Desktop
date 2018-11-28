@@ -1,0 +1,374 @@
+
+28/11/2018 18:19:00 mensagem sobre login do usuário enviada no slack!
+28/11/2018 18:19:03 ID já existe no banco!
+28/11/2018 18:19:03 mensagem de alerta sobre captura iniciada foi enviada no slack!
+28/11/2018 18:19:04 Captura de dados iniciada. ID deste Ativo:PEEDV0BGA7Q6UR
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:19:04 captando informações de rede
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 captando informações de rede
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 captando informações de rede
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 captando informações de rede
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:19:04 captando informações de rede
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 captando dados do componente com sucesso!
+28/11/2018 18:19:04 captando informações de rede
+28/11/2018 18:19:03 mensagem de alerta sobre fim da captura foi enviada no slack!
+28/11/2018 18:19:04 Fim da captura de dados.
+28/11/2018 18:33:34 mensagem sobre login do usuário enviada no slack!
+28/11/2018 18:33:35 ID já existe no banco!
+28/11/2018 18:33:35 mensagem de alerta sobre captura iniciada foi enviada no slack!
+28/11/2018 18:33:36 Captura de dados iniciada. ID deste Ativo:PEEDV0BGA7Q6UR
+28/11/2018 18:33:36 captando dados do componente com sucesso!
+28/11/2018 18:33:36 captando dados do componente com sucesso!
+28/11/2018 18:33:36 captando informações de rede
+28/11/2018 18:33:36 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:33:36 captando dados do componente com sucesso!
+28/11/2018 18:33:36 captando informações de rede
+28/11/2018 18:33:36 captando dados do componente com sucesso!
+28/11/2018 18:33:36 captando dados do componente com sucesso!
+28/11/2018 18:33:36 captando informações de rede
+28/11/2018 18:33:36 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:33:36 captando dados do componente com sucesso!
+28/11/2018 18:33:36 captando informações de rede
+28/11/2018 18:33:36 captando dados do componente com sucesso!
+28/11/2018 18:33:35 mensagem de alerta sobre fim da captura foi enviada no slack!
+28/11/2018 18:33:36 Fim da captura de dados.
+28/11/2018 18:38:58 mensagem sobre login do usuário enviada no slack!
+28/11/2018 18:39:01 ID já existe no banco!
+28/11/2018 18:39:01 mensagem de alerta sobre captura iniciada foi enviada no slack!
+28/11/2018 18:39:01 Captura de dados iniciada. ID deste Ativo:PEEDV0BGA7Q6UR
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:39:01 captando informações de rede
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando informações de rede
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando informações de rede
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando informações de rede
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando informações de rede
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando dados do componente com sucesso!
+28/11/2018 18:39:01 captando informações de rede
+28/11/2018 18:39:01 mensagem de alerta sobre fim da captura foi enviada no slack!
+28/11/2018 18:39:01 Fim da captura de dados.
+28/11/2018 18:44:57 mensagem sobre login do usuário enviada no slack!
+28/11/2018 18:44:59 ID já existe no banco!
+28/11/2018 18:44:59 mensagem de alerta sobre captura iniciada foi enviada no slack!
+28/11/2018 18:45:00 Captura de dados iniciada. ID deste Ativo:PEEDV0BGA7Q6UR
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:45:00 Erro na execução! Falha ao captar informações de rede. método: insertRede.
+28/11/2018 18:45:00 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:44:59 mensagem de alerta sobre componente foi enviada no slack!Alerta: O uso do componente está em estado crítico.
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 Erro na execução! Falha ao captar informações de rede. método: insertRede.
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+28/11/2018 18:45:00 Erro na execução! Falha ao captar informações de rede. método: insertRede.
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:45:00 captando informações de rede
+28/11/2018 18:45:00 captando dados do componente com sucesso!
+28/11/2018 18:44:59 mensagem de alerta sobre fim da captura foi enviada no slack!
+28/11/2018 18:45:00 Fim da captura de dados.

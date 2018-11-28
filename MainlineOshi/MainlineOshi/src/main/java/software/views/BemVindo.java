@@ -29,7 +29,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 60000);
+                        cnxSql.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 20000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -49,7 +49,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 120000);
+                        cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 600000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -70,7 +70,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 60000);
+                        cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 20000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class arquivoLog {
     
     
-    String caminhoDoArquivo = "\\Pictures\\Mainline\\";
+    String caminhoDoArquivo = "\\Desktop\\Mainline\\";
     File arquivo;
     FileReader fileReader;
     BufferedReader bufferedReader;
