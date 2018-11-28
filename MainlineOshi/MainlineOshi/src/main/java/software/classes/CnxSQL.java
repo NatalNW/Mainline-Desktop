@@ -18,11 +18,15 @@ public class CnxSQL {
     private final DadosOshi oshi = new DadosOshi();
     private final Usuario user = new Usuario();
     private final String idAtivo = oshi.getAtivoID(); // id do Ativo
+
     public arquivoLog arq = new arquivoLog();
     String quebraLinha = System.getProperty("line.separator");
     Date dataHoraAtual = new Date();
     String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
     String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
+    private String dia = oshi.getDia();
+    private String hora = oshi.getHora();
+
 
     // Variaveis de Cnx
     protected final String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
@@ -82,7 +86,7 @@ public class CnxSQL {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO " + tabela + " (" + coluna + ", idAtivo) VALUES (" + valorComponente + ", '" + idAtivo + "')";
+            String insert = "INSERT INTO " + tabela + " (" + coluna + ", dia, hora, idAtivo) VALUES (" + valorComponente + ", '"+dia+"', '"+hora+"', '" + idAtivo + "')";
             stm.executeUpdate(insert);
             arq.escreverlog(quebraLinha + data2 + hora2 + " captando dados do componente com sucesso!");
             cnx.close();
@@ -104,7 +108,7 @@ public class CnxSQL {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO infoRede (upload, download, idAtivo) VALUES (" + upload + "," + download + ",'" + idAtivo + "')";
+            String insert = "INSERT INTO infoRede (upload, download, dia, hora, idAtivo) VALUES (" + upload + "," + download + ", '"+dia+"', '"+hora+"','" + idAtivo + "')";
             stm.executeUpdate(insert);
             arq.escreverlog(quebraLinha + data2 + hora2 + " captando informações de rede");
             cnx.close();
@@ -113,6 +117,6 @@ public class CnxSQL {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
             arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! Falha ao captar informações de rede. método: insertRede.");
         }
-        Thread.sleep(20000);
+        Thread.sleep(60000);
     }
 }

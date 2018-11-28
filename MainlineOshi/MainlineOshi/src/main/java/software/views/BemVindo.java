@@ -27,8 +27,9 @@ public class BemVindo extends javax.swing.JFrame {
         this.ram = () -> {
             while (true) {
                 try {
+
                     try {
-                        cnxSql.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 20000);
+                        cnxSql.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 60000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -46,11 +47,13 @@ public class BemVindo extends javax.swing.JFrame {
         this.hd = () -> {
             while (true) {
                 try {
+
                     try {
-                        cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 60000);
+                        cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 120000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
+
                 } catch (InterruptedException ex) {
                     JOptionPane.showMessageDialog(null, "loop bv hd", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,8 +68,9 @@ public class BemVindo extends javax.swing.JFrame {
         this.cpu = () -> {
             while (true) {
                 try {
+
                     try {
-                        cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 20000);
+                        cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 60000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }

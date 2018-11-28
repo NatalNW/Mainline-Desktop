@@ -1,5 +1,8 @@
 package software.classes;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import oshi.SystemInfo;
 import oshi.hardware.Baseboard;
 import oshi.hardware.CentralProcessor;
@@ -71,5 +74,17 @@ public class DadosOshi {
         float dowload = (float) ((recebAgain / deltaTime) * 8);
 
         return dowload;
+    }
+
+    protected String getDia() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+    
+    protected String getHora() {
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 }
