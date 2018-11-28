@@ -1,0 +1,12 @@
+
+25/11/2018 11:58:21 mensagem sobre login do usuário enviada no slack!
+25/11/2018 11:58:44 ID já existe no banco!
+25/11/2018 11:58:44 mensagem de alerta sobre captura iniciada foi enviada no slack!
+25/11/2018 11:58:54 Captura de dados iniciada. ID deste Ativo:123490EN400015
+25/11/2018 11:58:54 captando dados do componente com sucesso!
+25/11/2018 11:58:54 captando dados do componente com sucesso!
+25/11/2018 11:58:54 captando informações de rede
+25/11/2018 11:58:54 Erro na execução! Falha ao iniciar captura de dados. método: insertComponente.
+25/11/2018 11:58:49 mensagem de alerta sobre componente foi enviada no slack!Alerta: O uso do componente está em estado crítico.
+25/11/2018 11:58:44 mensagem de alerta sobre fim da captura foi enviada no slack!
+25/11/2018 11:58:54 Fim da captura de dados.
