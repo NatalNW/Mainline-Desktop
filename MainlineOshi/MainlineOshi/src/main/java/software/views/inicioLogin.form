@@ -35,12 +35,13 @@
                           <Component id="txtSenha" min="-2" pref="300" max="-2" attributes="0"/>
                           <Component id="jlSenha" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jlEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEmail" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                               <Component id="btnLogar" min="-2" pref="142" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtEmail" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>

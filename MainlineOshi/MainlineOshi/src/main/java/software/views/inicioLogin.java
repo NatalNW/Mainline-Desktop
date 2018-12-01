@@ -1,5 +1,10 @@
 package software.views;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import software.classes.CnxSQL;
 import software.classes.Usuario;
@@ -70,10 +75,11 @@ public class inicioLogin extends javax.swing.JFrame {
                             .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlSenha)
                             .addComponent(jlEmail)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(77, 77, 77)
-                                .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(93, 93, 93))
         );
         layout.setVerticalGroup(
@@ -98,12 +104,16 @@ public class inicioLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
-        if (cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText())) {// Autenticação de login;
-            bv.jlBemVindo.setText("Bem vindo, " + user.getNome());
-            bv.setVisible(true);// Mostra ou oculta esta janela instaciada, dependendo do valor de parâmetro booleano;
-            dispose();// Fecha a tela anterior aberta(inicioLogin) e libera memoria para o SO;  
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuário ou/e senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
+        try {
+            if (cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText())) {// Autenticação de login;
+                bv.jlBemVindo.setText("Bem vindo, " + user.getNome());
+                bv.setVisible(true);// Mostra ou oculta esta janela instaciada, dependendo do valor de parâmetro booleano;
+                dispose();// Fecha a tela anterior aberta(inicioLogin) e libera memoria para o SO;
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou/e senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(inicioLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnLogarActionPerformed
 
