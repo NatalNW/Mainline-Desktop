@@ -16,7 +16,11 @@ public class BemVindo extends javax.swing.JFrame {
     private int i = 0;
     private final JSlack jslack = new JSlack();
     private DadosOshi oshi = new DadosOshi();
-    private CnxSQL cnxSql = new CnxSQL();
+    private final String idAtivo = oshi.getAtivoID();
+    private CnxSQL insertRede = new CnxSQL();
+    private CnxSQL insertCpu = new CnxSQL();
+    private CnxSQL insertHD = new CnxSQL();
+    private CnxSQL insertRam = new CnxSQL();
     public arquivoLog arq = new arquivoLog();
     String quebraLinha = System.getProperty("line.separator");
     Date dataHoraAtual = new Date();
@@ -29,7 +33,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 20000);
+                        insertRam.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 20000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -49,7 +53,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 600000);
+                        insertHD.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 600000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -70,7 +74,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 20000);
+                        insertCpu.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 20000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -89,7 +93,7 @@ public class BemVindo extends javax.swing.JFrame {
             while (true) {
                 try {
                     try {
-                        cnxSql.insertRede();
+                        insertRede.insertRede();
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -179,15 +183,15 @@ public class BemVindo extends javax.swing.JFrame {
 
     private void bntIniciarActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         if (i % 2 == 0) {
-            jLabel2.setText("Captura de dados iniciada. ID deste Ativo: " + oshi.getAtivoID());
+            jLabel2.setText("Captura de dados iniciada. ID deste Ativo: " + idAtivo);
             bntIniciar.setText("Fechar");
-            jslack.capturaIniciada(oshi.getAtivoID());
+            jslack.capturaIniciada(idAtivo);
             new Thread(ram).start();
             new Thread(cpu).start();
             new Thread(hd).start();
             new Thread(rede).start();
+            arq.escreverlog(quebraLinha + data2 + hora2 + " Captura de dados iniciada. ID deste Ativo:" + idAtivo);
             i++;
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Captura de dados iniciada. ID deste Ativo:" + oshi.getAtivoID());
         } else {
             jslack.fimCaptura();
             arq.escreverlog(quebraLinha + data2 + hora2 + " Fim da captura de dados.");
