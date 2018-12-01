@@ -16,12 +16,16 @@ public class BemVindo extends javax.swing.JFrame {
     private int i = 0;
     private final JSlack jslack = new JSlack();
     private DadosOshi oshi = new DadosOshi();
-    private CnxSQL cnxSql = new CnxSQL();
+    private final String idAtivo = oshi.getAtivoID();
+    private CnxSQL insertRede = new CnxSQL();
+    private CnxSQL insertCpu = new CnxSQL();
+    private CnxSQL insertHD = new CnxSQL();
+    private CnxSQL insertRam = new CnxSQL();
     public arquivoLog arq = new arquivoLog();
-    String quebraLinha = System.getProperty("line.separator");
-    Date dataHoraAtual = new Date();
-    String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-    String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
+    private final String quebraLinha = System.getProperty("line.separator");
+    private Date dataHoraAtual = new Date();
+    private String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+    private String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
 
     public BemVindo() {
         this.ram = () -> {
@@ -29,7 +33,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 20000);
+                        insertRam.insertComponente("infoRam", "infoRam", "Ram", oshi.getConsumoRam(), 20000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -37,7 +41,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv Ram", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                         arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+                         arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -49,7 +53,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 600000);
+                        insertHD.insertComponente("infoHD", "infoHD", "HD", oshi.getConsumoHD(), 600000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -58,7 +62,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv hd", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                         arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+                         arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -70,7 +74,7 @@ public class BemVindo extends javax.swing.JFrame {
                 try {
 
                     try {
-                        cnxSql.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 20000);
+                        insertCpu.insertComponente("infoCpu", "infoCpu", "CPU", oshi.getConsumoCPU(), 20000);
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -78,7 +82,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv cpu", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+                        arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -89,7 +93,7 @@ public class BemVindo extends javax.swing.JFrame {
             while (true) {
                 try {
                     try {
-                        cnxSql.insertRede();
+                        insertRede.insertRede();
                     } catch (IOException ex) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -97,7 +101,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv Rede", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+                        arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -131,7 +135,7 @@ public class BemVindo extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! método: actionPerformed.");
+                        arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução! método: actionPerformed.");
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -179,18 +183,18 @@ public class BemVindo extends javax.swing.JFrame {
 
     private void bntIniciarActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         if (i % 2 == 0) {
-            jLabel2.setText("Captura de dados iniciada. ID deste Ativo: " + oshi.getAtivoID());
+            jLabel2.setText("Captura de dados iniciada. ID deste Ativo: " + idAtivo);
             bntIniciar.setText("Fechar");
-            jslack.capturaIniciada(oshi.getAtivoID());
+            jslack.capturaIniciada(idAtivo);
             new Thread(ram).start();
             new Thread(cpu).start();
             new Thread(hd).start();
             new Thread(rede).start();
+            arq.escreverLog(quebraLinha + data2 + hora2 + " Captura de dados iniciada. ID deste Ativo:" + idAtivo);
             i++;
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Captura de dados iniciada. ID deste Ativo:" + oshi.getAtivoID());
         } else {
             jslack.fimCaptura();
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Fim da captura de dados.");
+            arq.escreverLog(quebraLinha + data2 + hora2 + " Fim da captura de dados.");
             System.exit(0); // fecha a aplicação com saida 0(sem erros)
         }
     }

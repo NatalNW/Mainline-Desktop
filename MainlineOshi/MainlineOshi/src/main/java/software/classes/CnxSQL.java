@@ -19,11 +19,11 @@ public class CnxSQL {
     private final Usuario user = new Usuario();
     private final String idAtivo = oshi.getAtivoID(); // id do Ativo
 
-    public arquivoLog arq = new arquivoLog();
-    String quebraLinha = System.getProperty("line.separator");
-    Date dataHoraAtual = new Date();
-    String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-    String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
+    private final arquivoLog arq = new arquivoLog();
+    private final String quebraLinha = System.getProperty("line.separator");
+    private Date dataHoraAtual = new Date();
+    private String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+    private String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
 
     // Variaveis de Cnx
     protected final String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
@@ -47,11 +47,12 @@ public class CnxSQL {
                 return true; // if email e senha fornecidos pelo usuario existirem no BD, retorna true;
                 //}
             }
+            
+            stm.close();
             cnx.close();
-
         } catch (SQLException ex) {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-             arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+             arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
         }
 
         return false;
@@ -64,18 +65,19 @@ public class CnxSQL {
             String select = "SELECT * FROM ativo WHERE idAtivo = '" + idAtivo + "'";
             ResultSet rs = stm.executeQuery(select);
             if (rs.next()) {
-                arq.escreverlog(quebraLinha + data2 + hora2 + " ID já existe no banco!");
+                arq.escreverLog(quebraLinha + data2 + hora2 + " ID já existe no banco!");
             } else {
                 String insert = "INSERT INTO ativo (idAtivo) VALUES ('" + idAtivo + "')";
                 stm.executeUpdate(insert);// Executa a instrução SQL fornecida, que pode ser uma instrução INSERT, UPDATE ou DELETE;
-                arq.escreverlog(quebraLinha + data2 + hora2 + " Novo ID inserido no banco!");
+                arq.escreverLog(quebraLinha + data2 + hora2 + " Novo ID inserido no banco!");
             }
-
+            
+            stm.close();
             cnx.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-             arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+             arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
         }
     }
 
@@ -85,16 +87,18 @@ public class CnxSQL {
             stm = cnx.createStatement();
             String insert = "INSERT INTO " + tabela + " (" + coluna + ", dia, hora, idAtivo) VALUES (" + valorComponente + ", '"+oshi.getDia()+"', '"+oshi.getHora()+"', '" + idAtivo + "')";
             stm.executeUpdate(insert);
-            arq.escreverlog(quebraLinha + data2 + hora2 + " captando dados do componente com sucesso!");
+            arq.escreverLog(quebraLinha + data2 + hora2 + " captando dados do componente com sucesso!");
+            
+            stm.close();
             cnx.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "CnxSQL Componente " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-             arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+             arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
         }
         if (valorComponente > 80) {
             jslack.alertaComponente(nomeComponente);
-            arq.escreverlog("Alerta: O uso do componente está em estado crítico.");
+            arq.escreverLog("Alerta: O uso do componente está em estado crítico.");
         }
         Thread.sleep(sleep);
     }
@@ -107,12 +111,14 @@ public class CnxSQL {
             stm = cnx.createStatement();
             String insert = "INSERT INTO infoRede (upload, download, dia, hora, idAtivo) VALUES (" + upload + "," + download + ", '"+oshi.getDia()+"', '"+oshi.getHora()+"','" + idAtivo + "')";
             stm.executeUpdate(insert);
-            arq.escreverlog(quebraLinha + data2 + hora2 + " captando informações de rede");
+            arq.escreverLog(quebraLinha + data2 + hora2 + " captando informações de rede");
+            
+            stm.close();
             cnx.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "CnxSQL Rede " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
-             arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+             arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
         }
         Thread.sleep(20000);
     }
