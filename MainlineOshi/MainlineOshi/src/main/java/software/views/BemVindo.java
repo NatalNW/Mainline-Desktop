@@ -22,10 +22,10 @@ public class BemVindo extends javax.swing.JFrame {
     private CnxSQL insertHD = new CnxSQL();
     private CnxSQL insertRam = new CnxSQL();
     public arquivoLog arq = new arquivoLog();
-    String quebraLinha = System.getProperty("line.separator");
-    Date dataHoraAtual = new Date();
-    String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-    String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
+    private final String quebraLinha = System.getProperty("line.separator");
+    private Date dataHoraAtual = new Date();
+    private String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+    private String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
 
     public BemVindo() {
         this.ram = () -> {
@@ -41,7 +41,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv Ram", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                         arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+                         arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -62,7 +62,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv hd", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                         arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+                         arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -82,7 +82,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv cpu", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+                        arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -101,7 +101,7 @@ public class BemVindo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "loop bv Rede", "Erro!", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " " + ex);
+                        arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -135,7 +135,7 @@ public class BemVindo extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex);
                     try {
-                        arq.escreverlog(quebraLinha + data2 + hora2 + " Erro na execução! método: actionPerformed.");
+                        arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução! método: actionPerformed.");
                     } catch (IOException ex1) {
                         Logger.getLogger(BemVindo.class.getName()).log(Level.SEVERE, null, ex1);
                     }
@@ -190,11 +190,11 @@ public class BemVindo extends javax.swing.JFrame {
             new Thread(cpu).start();
             new Thread(hd).start();
             new Thread(rede).start();
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Captura de dados iniciada. ID deste Ativo:" + idAtivo);
+            arq.escreverLog(quebraLinha + data2 + hora2 + " Captura de dados iniciada. ID deste Ativo:" + idAtivo);
             i++;
         } else {
             jslack.fimCaptura();
-            arq.escreverlog(quebraLinha + data2 + hora2 + " Fim da captura de dados.");
+            arq.escreverLog(quebraLinha + data2 + hora2 + " Fim da captura de dados.");
             System.exit(0); // fecha a aplicação com saida 0(sem erros)
         }
     }

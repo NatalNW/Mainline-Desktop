@@ -106,6 +106,7 @@ public class inicioLogin extends javax.swing.JFrame {
             if (cnxSql.autenticaUsuario(txtEmail.getText(), txtSenha.getText())) {// Autenticação de login;
                 bv.jlBemVindo.setText("Bem vindo, " + user.getNome());
                 bv.setVisible(true);// Mostra ou oculta esta janela instaciada, dependendo do valor de parâmetro booleano;
+                cnxSql.verificaAtivoID();
                 dispose();// Fecha a tela anterior aberta(inicioLogin) e libera memoria para o SO;
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou/e senha inválidos...", "Erro!", JOptionPane.ERROR_MESSAGE);
