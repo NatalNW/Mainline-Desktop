@@ -157,11 +157,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\51057\Desktop\Mainline\MainlineOshi\MainlineOshi\src\main\java\software\img\M_transparente.png"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="*/&#xa;jLabel1.setIcon(new ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\software\\img\\M_transparente.png&quot;));">
+              <Connection code="new ImageIcon(&quot;Path/To/Your/Image.png&quot;))&#xa;" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="/*"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
