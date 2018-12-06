@@ -37,6 +37,7 @@ public class inicioLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanelFundo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,7 +69,7 @@ public class inicioLogin extends javax.swing.JFrame {
         jLabel1.setIcon(new ImageIcon("Path/To/Your/Image.png"))
     );
     */
-    jLabel1.setIcon(new ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\software\\img\\M_transparente.png"));
+    jLabel1.setIcon(new ImageIcon(System.getProperty("user.dir")+"\\classes\\software\\img\\M_transparente.png"));
     jLabel1.setText("jLabel1");
 
     javax.swing.GroupLayout jPanelFundoLayout = new javax.swing.GroupLayout(jPanelFundo);
@@ -122,7 +123,7 @@ public class inicioLogin extends javax.swing.JFrame {
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
 
     pack();
