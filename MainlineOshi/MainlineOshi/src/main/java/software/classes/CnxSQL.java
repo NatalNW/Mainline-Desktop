@@ -11,13 +11,20 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import software.classes.JSlack;
+import software.classes.Usuario;
+import software.classes.arquivoLog;
+import software.oshi.Ativo;
+import software.oshi.Rede;
 
 public class CnxSQL {
 
     private final JSlack jslack = new JSlack();
-    private final DadosOshi oshi = new DadosOshi();
+
     private final Usuario user = new Usuario();
-    private final String idAtivo = oshi.getAtivoID(); // id do Ativo
+    private final Ativo ativo = new Ativo();
+    private final Rede rede = new Rede();
+    private final String idAtivo = ativo.getAtivoID(); // id do Ativo
 
     private final arquivoLog arq = new arquivoLog();
     private final String quebraLinha = System.getProperty("line.separator");
@@ -81,11 +88,74 @@ public class CnxSQL {
         }
     }
 
-    public void insertComponente(String tabela, String coluna, String nomeComponente, float valorComponente, long sleep) throws InterruptedException, IOException {
+    public void insertCpu(String tabela, String coluna, String nomeComponente, float valorComponente, long sleep) throws InterruptedException, IOException {
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO " + tabela + " (" + coluna + ", dia, hora, idAtivo) VALUES (" + valorComponente + ", '"+oshi.getDia()+"', '"+oshi.getHora()+"', '" + idAtivo + "')";
+            String insert = "INSERT INTO " + tabela + " (" + coluna + ", dia, hora, idAtivo) VALUES (" + valorComponente + ", '"+data2+"', '"+hora2+"', '" + idAtivo + "')";
+            stm.executeUpdate(insert);
+            arq.escreverLog(quebraLinha + data2 + hora2 + " captando dados do componente Cpu com sucesso!");
+            
+            stm.close();
+            cnx.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "CnxSQL Componente " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
+             arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
+        }
+        if (valorComponente > 80) {
+            jslack.alertaComponente("Cpu");
+            arq.escreverLog("Alerta: O uso do componente Cpu está em estado crítico.");
+        }
+        Thread.sleep(10000);
+    }
+    public void insertRam(String tabela, String coluna, String nomeComponente, float valorComponente, long sleep) throws InterruptedException, IOException {
+        try {
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            String insert = "INSERT INTO " + tabela + " (" + coluna + ", dia, hora, idAtivo) VALUES (" + valorComponente + ", '"+data2+"', '"+hora2+"', '" + idAtivo + "')";
+            stm.executeUpdate(insert);
+            arq.escreverLog(quebraLinha + data2 + hora2 + " captando dados do componente Ram com sucesso!");
+            
+            stm.close();
+            cnx.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "CnxSQL Componente " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
+             arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
+        }
+        if (valorComponente > 80) {
+            jslack.alertaComponente("Ram");
+            arq.escreverLog("Alerta: O uso do componente Ram está em estado crítico.");
+        }
+        Thread.sleep(10000);
+    }
+    public void insertHD(String tabela, String coluna, String nomeComponente, float valorComponente, long sleep) throws InterruptedException, IOException {
+        try {
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            String insert = "INSERT INTO " + tabela + " (" + coluna + ", dia, hora, idAtivo) VALUES (" + valorComponente + ", '"+data2+"', '"+hora2+"', '" + idAtivo + "')";
+            stm.executeUpdate(insert);
+            arq.escreverLog(quebraLinha + data2 + hora2 + " captando dados do componente HD com sucesso!");
+            
+            stm.close();
+            cnx.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "CnxSQL Componente " + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
+             arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
+        }
+        if (valorComponente > 80) {
+            jslack.alertaComponente("HD");
+            arq.escreverLog("Alerta: O uso do componente HD está em estado crítico.");
+        }
+        Thread.sleep(600000);
+    }
+    public void insertAtivo(String tabela, String coluna, String nomeComponente, float valorComponente, long sleep) throws InterruptedException, IOException {
+        try {
+            cnx = DriverManager.getConnection(url);
+            stm = cnx.createStatement();
+            String insert = "INSERT INTO " + tabela + " (" + coluna + ", dia, hora, idAtivo) VALUES (" + valorComponente + ", '"+data2+"', '"+hora2+"', '" + idAtivo + "')";
             stm.executeUpdate(insert);
             arq.escreverLog(quebraLinha + data2 + hora2 + " captando dados do componente com sucesso!");
             
@@ -96,20 +166,15 @@ public class CnxSQL {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
              arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
         }
-        if (valorComponente > 80) {
-            jslack.alertaComponente(nomeComponente);
-            arq.escreverLog("Alerta: O uso do componente está em estado crítico.");
-        }
-        Thread.sleep(sleep);
     }
 
     public void insertRede() throws InterruptedException, IOException {
-        float download = oshi.getDownload();
-        float upload = oshi.getUpload();
+        float download = rede.getDownload();
+        float upload = rede.getUpload();
         try {
             cnx = DriverManager.getConnection(url);
             stm = cnx.createStatement();
-            String insert = "INSERT INTO infoRede (upload, download, dia, hora, idAtivo) VALUES (" + upload + "," + download + ", '"+oshi.getDia()+"', '"+oshi.getHora()+"','" + idAtivo + "')";
+            String insert = "INSERT INTO infoRede (upload, download, dia, hora, idAtivo) VALUES (" + upload + "," + download + ", '"+data2+"', '"+hora2+"','" + idAtivo + "')";
             stm.executeUpdate(insert);
             arq.escreverLog(quebraLinha + data2 + hora2 + " captando informações de rede");
             
@@ -120,6 +185,6 @@ public class CnxSQL {
             Logger.getLogger(CnxSQL.class.getName()).log(Level.SEVERE, null, ex);
              arq.escreverLog(quebraLinha + data2 + hora2 + " " + ex);
         }
-        Thread.sleep(20000);
+        Thread.sleep(10000);
     }
 }
