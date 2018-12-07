@@ -47,7 +47,7 @@ public class inicioLogin extends javax.swing.JFrame {
         txtEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 6, 6));
 
         jLabelEmail.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabelEmail.setText("Email");
+        jLabelEmail.setText("Emil");
 
         txtSenha.setBackground(new java.awt.Color(242, 242, 242));
         txtSenha.setText("teste123");
