@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import software.classes.CnxSQL;
+import software.connectionSQL.CnxSQL;
 import software.classes.Usuario;
 
 public class inicioLogin extends javax.swing.JFrame {
