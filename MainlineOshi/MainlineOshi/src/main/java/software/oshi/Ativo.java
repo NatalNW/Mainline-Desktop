@@ -17,9 +17,4 @@ public class Ativo {
         return so + " " + versao;
     }
 
-    public long getTempoDeAtividade() {
-        long tda = oshi.getProcessor().getSystemUptime();
-
-        return tda;
-    }
 }

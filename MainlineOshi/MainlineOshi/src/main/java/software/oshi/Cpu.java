@@ -1,13 +1,21 @@
 package software.oshi;
 
+import oshi.util.FormatUtil;
+
 public class Cpu {
 
     private final Oshi oshi = new Oshi();
 
-    public String getNomeCpu() {
+    public String getVersaoCpu() {
         String nomeCPU = oshi.getProcessor().getName();
 
         return nomeCPU;
+    }
+
+    public String getTempoDeAtividade() {
+        long tda = oshi.getProcessor().getSystemUptime();
+
+        return FormatUtil.formatElapsedSecs(tda);
     }
 
     public int getNumeroDeThreads() {

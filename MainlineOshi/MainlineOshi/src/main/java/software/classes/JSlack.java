@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class JSlack {
 
-    public arquivoLog arq = new arquivoLog();
+    private arquivoLog arq = new arquivoLog();
     private final String quebraLinha = System.getProperty("line.separator");
     private Date dataHoraAtual = new Date();
     private String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
@@ -32,7 +32,7 @@ public class JSlack {
             arq.escreverLog(quebraLinha + data2 + hora2 + " mensagem sobre login do usuário enviada no slack!");
         } catch (IOException ex) {
             Logger.getLogger(JSlack.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução! método: usuarioLogado.");
+            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro ao tentar enviar mensagem do metodo usuarioLogado no slack!");
         }
     }
 
@@ -49,7 +49,7 @@ public class JSlack {
             arq.escreverLog(quebraLinha + data2 + hora2 + " mensagem de alerta sobre componente foi enviada no slack!");
         } catch (IOException ex) {
             Logger.getLogger(JSlack.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução!  método: alertaComponente.");
+            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro ao tentar enviar mensagem do metodo alertaComponente no slack!");
         }
     }
     
@@ -66,7 +66,7 @@ public class JSlack {
             arq.escreverLog(quebraLinha + data2 + hora2 + " mensagem de alerta sobre captura iniciada foi enviada no slack!");
         } catch (IOException ex) {
             Logger.getLogger(JSlack.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução!  método: capturaIniciada.");
+            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro ao enviar mensagem do metodo capuraIniciada no slack!");
         }
     }
 
@@ -83,7 +83,7 @@ public class JSlack {
             arq.escreverLog(quebraLinha + data2 + hora2 + " mensagem de alerta sobre fim da captura foi enviada no slack!");
         } catch (IOException ex) {
             Logger.getLogger(JSlack.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução!  método: fimCaptura.");
+            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro ao enviar mensagem do metodo fimCaptura no slack!");
         }
     }
 

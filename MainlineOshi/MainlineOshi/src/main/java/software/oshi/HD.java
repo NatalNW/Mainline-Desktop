@@ -19,7 +19,7 @@ public class HD {
         return usavel;
     }
 
-    public float getEspacoUsavel() {
+    public float getEspacoUsado() {
         long total = fls[0].getTotalSpace();
         long usavel = fls[0].getUsableSpace();
 
