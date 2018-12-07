@@ -1,29 +1,30 @@
 package software.oshi;
 
 import oshi.software.os.OSFileStore;
+import oshi.util.FormatUtil;
 
 public class HD {
 
     private final Oshi oshi = new Oshi();
     private final OSFileStore[] fls = oshi.getFileSystem().getFileStores();
 
-    public float getEspacoTotal() {
+    public String getEspacoTotal() {
         long total = fls[0].getTotalSpace();
 
-        return total;
+        return FormatUtil.formatBytes(total);
     }
 
-    public float getEspacoDisponivel() {
+    public String getEspacoDisponivel() {
         long usavel = fls[0].getUsableSpace();
 
-        return usavel;
+        return FormatUtil.formatBytes(usavel);
     }
 
-    public float getEspacoUsado() {
+    public String getEspacoUsado() {
         long total = fls[0].getTotalSpace();
         long usavel = fls[0].getUsableSpace();
 
-        return total - usavel;
+        return FormatUtil.formatBytes(total - usavel);
     }
 
     public float getConsumoHD() {

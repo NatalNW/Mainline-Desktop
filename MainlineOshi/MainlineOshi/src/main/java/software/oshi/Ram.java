@@ -1,5 +1,7 @@
 package software.oshi;
 
+import oshi.util.FormatUtil;
+
 public class Ram {
 
     private final Oshi oshi = new Oshi();
@@ -12,23 +14,23 @@ public class Ram {
         return consumoRam; // Retorna o consumo da ram em porcentagem;
     }
 
-    public float getMemoriaTotal() {
+    public String getMemoriaTotal() {
         long total = oshi.getMemory().getTotal();
 
-        return total;
+        return FormatUtil.formatBytes(total);
     }
 
-    public float getMemoriaDiponivel() {
+    public String getMemoriaDiponivel() {
         long disponivel = oshi.getMemory().getAvailable();
 
-        return disponivel;
+        return FormatUtil.formatBytes(disponivel);
     }
 
-    public float getMemoriaUsada() {
+    public String getMemoriaUsada() {
         long total = oshi.getMemory().getTotal();
         long disponivel = oshi.getMemory().getAvailable();
 
-        return total - disponivel;
+        return FormatUtil.formatBytes(total - disponivel);
     }
 
 }

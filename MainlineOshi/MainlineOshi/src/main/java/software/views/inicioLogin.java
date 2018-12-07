@@ -5,12 +5,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import software.classes.CnxSQL;
+import software.classes.ConexaoSQL;
 import software.classes.Usuario;
 
 public class inicioLogin extends javax.swing.JFrame {
 
-    private final CnxSQL cnxSql = new CnxSQL();
+    private final ConexaoSQL cnxSql = new ConexaoSQL();
     private final BemVindo bv = new BemVindo();
     private final Usuario user = new Usuario();
 
