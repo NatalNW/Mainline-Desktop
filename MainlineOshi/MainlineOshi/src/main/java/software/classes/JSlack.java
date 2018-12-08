@@ -4,18 +4,13 @@ import com.github.seratch.jslack.Slack;
 import com.github.seratch.jslack.api.webhook.Payload;
 import com.github.seratch.jslack.api.webhook.WebhookResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class JSlack {
 
-    public arquivoLog arq = new arquivoLog();
+    private final arquivoLog arq = new arquivoLog();
     private final String quebraLinha = System.getProperty("line.separator");
-    private Date dataHoraAtual = new Date();
-    private String data2 = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-    private String hora2 = new SimpleDateFormat(" HH:mm:ss").format(dataHoraAtual);
     
     private final String url = "https://hooks.slack.com/services/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";
 
@@ -29,10 +24,10 @@ public class JSlack {
         Slack slack = Slack.getInstance();
         try {
             WebhookResponse response = slack.send(url, payload);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " mensagem sobre login do usuário enviada no slack!");
+            arq.escreverLog(quebraLinha + arq.getData() +" "+ arq.getHora() + " mensagem sobre login do usuário enviada no slack!");
         } catch (IOException ex) {
             Logger.getLogger(JSlack.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução! método: usuarioLogado.");
+            arq.escreverLog(quebraLinha + arq.getData() +" "+ arq.getHora() + " Erro ao tentar enviar mensagem do metodo usuarioLogado no slack!");
         }
     }
 
@@ -46,10 +41,10 @@ public class JSlack {
         Slack slack = Slack.getInstance();
         try {
             WebhookResponse response = slack.send(url, payload);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " mensagem de alerta sobre componente foi enviada no slack!");
+            arq.escreverLog(quebraLinha + arq.getData() +" "+ arq.getHora() + " mensagem de alerta sobre componente foi enviada no slack!");
         } catch (IOException ex) {
             Logger.getLogger(JSlack.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução!  método: alertaComponente.");
+            arq.escreverLog(quebraLinha + arq.getData() +" "+ arq.getHora() + " Erro ao tentar enviar mensagem do metodo alertaComponente no slack!");
         }
     }
     
@@ -63,10 +58,10 @@ public class JSlack {
         Slack slack = Slack.getInstance();
         try {
             WebhookResponse response = slack.send(url, payload);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " mensagem de alerta sobre captura iniciada foi enviada no slack!");
+            arq.escreverLog(quebraLinha + arq.getData() +" "+ arq.getHora() + " mensagem de alerta sobre captura iniciada foi enviada no slack!");
         } catch (IOException ex) {
             Logger.getLogger(JSlack.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução!  método: capturaIniciada.");
+            arq.escreverLog(quebraLinha + arq.getData() +" "+ arq.getHora() + " Erro ao enviar mensagem do metodo capuraIniciada no slack!");
         }
     }
 
@@ -80,10 +75,10 @@ public class JSlack {
         Slack slack = Slack.getInstance();
         try {
             WebhookResponse response = slack.send(url, payload);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " mensagem de alerta sobre fim da captura foi enviada no slack!");
+            arq.escreverLog(quebraLinha + arq.getData() +" "+ arq.getHora() + " mensagem de alerta sobre fim da captura foi enviada no slack!");
         } catch (IOException ex) {
             Logger.getLogger(JSlack.class.getName()).log(Level.SEVERE, null, ex);
-            arq.escreverLog(quebraLinha + data2 + hora2 + " Erro na execução!  método: fimCaptura.");
+            arq.escreverLog(quebraLinha + arq.getData() +" "+ arq.getHora() + " Erro ao enviar mensagem do metodo fimCaptura no slack!");
         }
     }
 

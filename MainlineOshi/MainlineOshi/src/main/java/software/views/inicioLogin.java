@@ -5,12 +5,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import software.classes.CnxSQL;
+import software.classes.ConexaoSQL;
 import software.classes.Usuario;
 
 public class inicioLogin extends javax.swing.JFrame {
 
-    private final CnxSQL cnxSql = new CnxSQL();
+    private final ConexaoSQL cnxSql = new ConexaoSQL();
     private final BemVindo bv = new BemVindo();
     private final Usuario user = new Usuario();
 
@@ -27,7 +27,6 @@ public class inicioLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
         jPanelFundo = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
@@ -37,6 +36,7 @@ public class inicioLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanelFundo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -64,11 +64,7 @@ public class inicioLogin extends javax.swing.JFrame {
             }
         });
 
-        /*
-        jLabel1.setIcon(new ImageIcon("Path/To/Your/Image.png"))
-    );
-    */
-    jLabel1.setIcon(new ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\software\\img\\M_transparente.png"));
+    jLabel1.setIcon(new ImageIcon(System.getProperty("user.dir")+"\\classes\\software\\img\\M_transparente.png"));
     jLabel1.setText("jLabel1");
 
     javax.swing.GroupLayout jPanelFundoLayout = new javax.swing.GroupLayout(jPanelFundo);
@@ -122,7 +118,7 @@ public class inicioLogin extends javax.swing.JFrame {
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
 
     pack();
@@ -178,7 +174,6 @@ public class inicioLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelSenha;
     private javax.swing.JPanel jPanelFundo;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables

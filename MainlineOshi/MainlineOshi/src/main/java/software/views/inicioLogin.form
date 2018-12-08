@@ -7,6 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -32,7 +33,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelFundo" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanelFundo" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -157,7 +158,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="*/&#xa;jLabel1.setIcon(new ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\software\\img\\M_transparente.png&quot;));">
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="*/&#xa;jLabel1.setIcon(new ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\classes\\software\\img\\M_transparente.png&quot;));">
               <Connection code="new ImageIcon(&quot;Path/To/Your/Image.png&quot;))&#xa;" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>

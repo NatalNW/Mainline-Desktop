@@ -3,28 +3,25 @@ package software.classes;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class arquivoLog {
-    
-    
+
     //private final String caminhoDoArquivo = "\\Desktop\\Mainline\\";
-    
-   // File arquivo;
+    // File arquivo;
     //private File arq;
     //FileWriter fileWriter;
     //BufferedWriter bufferedWriter;
     //private String workingDir = System.getProperty("user.home");
-   // private String time = new SimpleDateFormat("MM-YYYY").format(Calendar.getInstance().getTime());
+    // private String time = new SimpleDateFormat("MM-YYYY").format(Calendar.getInstance().getTime());
     //private String timeStamp = new SimpleDateFormat("dd-MM-yyyy__HH.mm").format(Calendar.getInstance().getTime());
-
     public void escreverLog(String erros) throws IOException {
-        
-        
+
         //objeto que insere a data no nome do arquivo txt, isso irá mudar o arquivo
         //de acordo com o dia
-       String dataArq = new SimpleDateFormat("dd-MM-yyyy").format(new Date());     
+        String dataArq = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 //        //cria a pasta
 //        File diretorio = new File("Logs");
 //        if(!diretorio.exists()){
@@ -32,14 +29,10 @@ public class arquivoLog {
 //        } 
 
         //cria o arquivo txt, escreve e grava(close).
-        
-        BufferedWriter writer = new BufferedWriter(new FileWriter( "log - " + dataArq +".txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("log - " + dataArq + ".txt", true));
         writer.write(erros);
         writer.close();
 
-      
-        
-        
 //LENDO ARQUIVOS DO DIRETÓRIO
 //        File fil = new File("\\Pictures\\Mainline\\");
 //        File fi[] = fil.listFiles();
@@ -48,7 +41,18 @@ public class arquivoLog {
 //            System.out.println(fi[i]);
 //        }
 //        
-        
-
     }
+
+    public String getData() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
+    public String getHora() {
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
 }
