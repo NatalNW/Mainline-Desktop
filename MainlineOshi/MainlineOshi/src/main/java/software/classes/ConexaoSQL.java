@@ -142,7 +142,7 @@ public class ConexaoSQL {
             jslack.alertaComponente("HD");
             arq.escreverLog("Alerta: O uso do componente HD está em estado crítico.");
         }
-        Thread.sleep(600000);
+        Thread.sleep(60000);
     }
 
     public void insertRede() throws InterruptedException, IOException {
