@@ -1,13 +1,19 @@
 package software.oshi;
 
+import com.sun.jna.Platform;
+
 public class Ativo {
 
     private final Oshi oshi = new Oshi();
 
     public String getAtivoID() {
-        String idAtivo = oshi.getBasebosrd().getSerialNumber();
-
-        return idAtivo;
+       if(Platform.isLinux()){
+           return oshi.getProcessor().getProcessorID();
+       }else if(Platform.isWindows()){
+           return oshi.getBasebosrd().getSerialNumber();
+       }else{
+           return null;
+       }
     }
 
     public String getSO() {
