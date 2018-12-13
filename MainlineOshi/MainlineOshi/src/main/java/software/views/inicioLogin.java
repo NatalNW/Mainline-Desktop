@@ -1,5 +1,6 @@
 package software.views;
 
+import com.sun.jna.Platform;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,7 @@ public class inicioLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         jPanelFundo = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
@@ -64,8 +66,17 @@ public class inicioLogin extends javax.swing.JFrame {
             }
         });
 
-    jLabel1.setIcon(new ImageIcon(System.getProperty("user.dir")+"\\classes\\software\\img\\M_transparente.png"));
-    jLabel1.setText("jLabel1");
+        /*
+        jLabel1.setIcon(new ImageIcon("Path/To/Your/Image.png"))
+    );
+    */
+    if(Platform.isWindows()){
+        jLabel1.setIcon(new ImageIcon(System.getProperty("user.dir")+"\\classes\\software\\img\\M_transparente.png"));
+    }else if (Platform.isLinux()){
+        jLabel1.setIcon(new ImageIcon(System.getProperty("user.dir")+"/classes/software/img/M_transparente.png"));
+    }else{
+        jLabel1.setText("jLabel1");
+    }
 
     javax.swing.GroupLayout jPanelFundoLayout = new javax.swing.GroupLayout(jPanelFundo);
     jPanelFundo.setLayout(jPanelFundoLayout);
@@ -174,6 +185,7 @@ public class inicioLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelSenha;
     private javax.swing.JPanel jPanelFundo;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables

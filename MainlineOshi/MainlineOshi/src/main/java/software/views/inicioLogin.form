@@ -158,12 +158,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="*/&#xa;jLabel1.setIcon(new ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\classes\\software\\img\\M_transparente.png&quot;));">
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="*/&#xa;if(Platform.isWindows()){&#xa;    jLabel1.setIcon(new ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\classes\\software\\img\\M_transparente.png&quot;));&#xa;}else if (Platform.isLinux()){&#xa;    jLabel1.setIcon(new ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;/classes/software/img/M_transparente.png&quot;));&#xa;}else{">
               <Connection code="new ImageIcon(&quot;Path/To/Your/Image.png&quot;))&#xa;" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="}"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="/*"/>
           </AuxValues>
         </Component>
