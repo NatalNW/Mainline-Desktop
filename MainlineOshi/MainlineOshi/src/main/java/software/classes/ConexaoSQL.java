@@ -29,7 +29,7 @@ public class ConexaoSQL {
     private final String quebraLinha = System.getProperty("line.separator");
 
     // Variaveis de Cnx
-    private final String url = String.format("jdbc:sqlserver://lol-2018.database.windows.net:1433;database=ADS 2018;user=jessicasantos@lol-2018;password=Corinthians11;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+    private final String url = String.format("");
     private Connection cnx = null;
     private Statement stm = null;
 
