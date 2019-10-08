@@ -1,2 +1,2 @@
-2º Semestre da faculdade Bandtec;
-Projeto de monitoração de Hardware usando a API Oshi.
+#MainLine
+Mainline is a software to monitoring hardware and network of subways machine.
