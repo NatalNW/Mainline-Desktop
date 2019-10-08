@@ -12,7 +12,7 @@ public class JSlack {
     private final arquivoLog arq = new arquivoLog();
     private final String quebraLinha = System.getProperty("line.separator");
     
-    private final String url = "https://hooks.slack.com/services/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";
+    private final String url = "";
 
     public void usuarioLogado(String nomeUser) throws IOException {
         Payload payload = Payload.builder()
